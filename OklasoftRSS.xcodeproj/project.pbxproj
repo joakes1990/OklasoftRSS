@@ -16,6 +16,9 @@
 		D088D3D51F0864300048B95A /* OklasoftNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D088D3D21F0863FB0048B95A /* OklasoftNetworking.framework */; };
 		D088D3D71F0865380048B95A /* ReaderObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D088D3D61F0865380048B95A /* ReaderObserver.swift */; };
 		D09CB6E61F098A9800E28DF8 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09CB6E51F098A9800E28DF8 /* Notifications.swift */; };
+		D0FEA9361F11FA44001AED7A /* OklasoftError.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D05D3B621F0F252D0020627D /* OklasoftError.framework */; };
+		D0FEA9391F1202AC001AED7A /* OklasoftError.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D05D3B621F0F252D0020627D /* OklasoftError.framework */; };
+		D0FEA93A1F1202B6001AED7A /* OklasoftNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D088D3D21F0863FB0048B95A /* OklasoftNetworking.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0FEA9361F11FA44001AED7A /* OklasoftError.framework in Frameworks */,
 				D088D3D51F0864300048B95A /* OklasoftNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -78,6 +82,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0FEA93A1F1202B6001AED7A /* OklasoftNetworking.framework in Frameworks */,
+				D0FEA9391F1202AC001AED7A /* OklasoftError.framework in Frameworks */,
 				D088D3BB1F0861E20048B95A /* OklasoftRSS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

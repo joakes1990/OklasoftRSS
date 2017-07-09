@@ -10,7 +10,7 @@ import Foundation
 
 public let feedInfoKey = "feed"
 
-extension Notification.Name {
+public extension Notification.Name {
     static let finishedReceavingFeed = Notification.Name("finishedReceavingFeed")
     static let feedIdentificationError = Notification.Name("notificationError")
 }

@@ -8,32 +8,33 @@
 
 import Foundation
 import OklasoftNetworking
-
-let identifyFeedsCompletion: networkCompletion = {(data, responce, error) in
-    if let foundError:Error = error {
-        NotificationCenter.default.post(name: .networkingErrorNotification,
+public extension URLSession {
+    static let identifyFeedsCompletion: networkCompletion = {(data, responce, error) in
+        if let foundError:Error = error {
+            NotificationCenter.default.post(name: .networkingErrorNotification,
+                                            object: nil,
+                                            userInfo:errorInfo(error: foundError).toDict())
+            return
+        }
+        guard let headers: URLResponse = responce,
+            let validData: Data = data,
+            let mimeType: mimeTypes = mimeTypes(rawValue:(headers.mimeType ?? "")),
+            let title: String = headers.suggestedFilename,
+            let url: URL = headers.url
+            else {
+                let error: Error = unrecognizableDataError
+                NotificationCenter.default.post(name: .feedIdentificationError,
+                                                object: nil,
+                                                userInfo: [errorInfoKey:error])
+                return
+        }
+        let newFeed: Feed = Feed(title: title,
+                                 url: url,
+                                 lastUpdated: Date(),
+                                 mimeType: mimeType,
+                                 stories: [])
+        NotificationCenter.default.post(name: .finishedReceavingFeed,
                                         object: nil,
-                                        userInfo:errorInfo(error: foundError).toDict())
-        return
+                                        userInfo: [feedInfoKey:newFeed])
     }
-    guard let headers: URLResponse = responce,
-        let validData: Data = data,
-        let mimeType: mimeTypes = mimeTypes(rawValue:(headers.mimeType ?? "")),
-        let title: String = headers.suggestedFilename,
-        let url: URL = headers.url
-    else {
-        let error: Error = unrecognizableDataError
-        NotificationCenter.default.post(name: .feedIdentificationError,
-                                        object: nil,
-                                        userInfo: [errorInfoKey:error])
-        return
-    }
-    let newFeed: Feed = Feed(title: title,
-                             url: url,
-                             lastUpdated: Date(),
-                             mimeType: mimeType,
-                             stories: [])
-    NotificationCenter.default.post(name: .finishedReceavingFeed,
-                                    object: nil,
-                                    userInfo: [feedInfoKey:newFeed])
 }

@@ -9,23 +9,10 @@
 import Foundation
 import OklasoftNetworking
 
-public class ReaderObserver: NSObject {
+public protocol ReaderObserver {
     
-    override init() {
-        super.init()
-//        NotificationCenter.default.addObserver(self,
-//                                               selector: #selector(receavedNewFeed(aNotification:)),
-//                                               name: .networkingSuccessNotification,
-//                                               object: nil)
-    }
+    func receavedNewFeed(aNotification: Notification)
     
-//    @objc func receavedNewFeed(aNotification: Notification) {
-//        guard let userInfo: [AnyHashable : Any] = aNotification.userInfo else {
-//            let error: errorInfo = errorInfo(error: couldnotFindUserInfo)
-//            NotificationCenter.default.post(name: .feedIdentificationError,
-//                                            object: nil,
-//                                            userInfo: error.toDict())
-//            return
-//        }
-//    }
+//    func receavedNewStory(aNotification: Notification, for feed: Feed)
+    
 }

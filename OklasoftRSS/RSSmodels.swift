@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Feed {
+public struct Feed {
     let title: String
     let url: URL
     let lastUpdated: Date
@@ -20,7 +20,7 @@ struct Feed {
     }
 }
 
-struct Story {
+public struct Story {
     let title: String
     let url: URL
     let content: String
@@ -29,8 +29,8 @@ struct Story {
     let feed: Feed
 }
 
-enum mimeTypes: String {
-    typealias RawValue = String
+public enum mimeTypes: String {
+    public typealias RawValue = String
     
     case atom = "application/atom"
     case atomXML = "application/atom+xml"
