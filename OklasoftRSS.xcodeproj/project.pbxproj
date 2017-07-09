@@ -7,12 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D05D3B361F0DE92B0020627D /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D3B351F0DE92B0020627D /* Errors.swift */; };
+		D05D3B5A1F0F23EB0020627D /* NetworkClosures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D3B591F0F23EB0020627D /* NetworkClosures.swift */; };
+		D05D3B641F11B6310020627D /* RSSmodels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D3B631F11B6310020627D /* RSSmodels.swift */; };
 		D088D3BB1F0861E20048B95A /* OklasoftRSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D088D3B11F0861E20048B95A /* OklasoftRSS.framework */; };
 		D088D3C01F0861E20048B95A /* OklasoftRSSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D088D3BF1F0861E20048B95A /* OklasoftRSSTests.swift */; };
 		D088D3C21F0861E20048B95A /* OklasoftRSS.h in Headers */ = {isa = PBXBuildFile; fileRef = D088D3B41F0861E20048B95A /* OklasoftRSS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D088D3D51F0864300048B95A /* OklasoftNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D088D3D21F0863FB0048B95A /* OklasoftNetworking.framework */; };
+		D088D3D71F0865380048B95A /* ReaderObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D088D3D61F0865380048B95A /* ReaderObserver.swift */; };
+		D09CB6E61F098A9800E28DF8 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09CB6E51F098A9800E28DF8 /* Notifications.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		D05D3B611F0F252D0020627D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D05D3B5D1F0F252D0020627D /* OklasoftError.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D05D3B431F0F20F30020627D;
+			remoteInfo = OklasoftError;
+		};
 		D088D3BC1F0861E20048B95A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D088D3A81F0861E20048B95A /* Project object */;
@@ -20,15 +33,36 @@
 			remoteGlobalIDString = D088D3B01F0861E20048B95A;
 			remoteInfo = OklasoftRSS;
 		};
+		D088D3D11F0863FB0048B95A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D088D3CC1F0863FB0048B95A /* OklasoftNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D0ACEED91F05CD5E005C35B6;
+			remoteInfo = OklasoftNetworking;
+		};
+		D088D3D31F0863FB0048B95A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D088D3CC1F0863FB0048B95A /* OklasoftNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D0ACEEE21F05CD5E005C35B6;
+			remoteInfo = OklasoftNetworkingTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D05D3B351F0DE92B0020627D /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		D05D3B591F0F23EB0020627D /* NetworkClosures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClosures.swift; sourceTree = "<group>"; };
+		D05D3B5D1F0F252D0020627D /* OklasoftError.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OklasoftError.xcodeproj; path = ../OklasoftError/OklasoftError.xcodeproj; sourceTree = "<group>"; };
+		D05D3B631F11B6310020627D /* RSSmodels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSmodels.swift; sourceTree = "<group>"; };
 		D088D3B11F0861E20048B95A /* OklasoftRSS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OklasoftRSS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D088D3B41F0861E20048B95A /* OklasoftRSS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OklasoftRSS.h; sourceTree = "<group>"; };
 		D088D3B51F0861E20048B95A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D088D3BA1F0861E20048B95A /* OklasoftRSSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OklasoftRSSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D088D3BF1F0861E20048B95A /* OklasoftRSSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OklasoftRSSTests.swift; sourceTree = "<group>"; };
 		D088D3C11F0861E20048B95A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D088D3CC1F0863FB0048B95A /* OklasoftNetworking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OklasoftNetworking.xcodeproj; path = ../OklasoftNetworking/OklasoftNetworking.xcodeproj; sourceTree = "<group>"; };
+		D088D3D61F0865380048B95A /* ReaderObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderObserver.swift; sourceTree = "<group>"; };
+		D09CB6E51F098A9800E28DF8 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D088D3D51F0864300048B95A /* OklasoftNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,11 +85,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D05D3B5E1F0F252D0020627D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D05D3B621F0F252D0020627D /* OklasoftError.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		D088D3A71F0861E20048B95A = {
 			isa = PBXGroup;
 			children = (
 				D088D3B31F0861E20048B95A /* OklasoftRSS */,
 				D088D3BE1F0861E20048B95A /* OklasoftRSSTests */,
+				D088D3CB1F0863E40048B95A /* Frameworks */,
 				D088D3B21F0861E20048B95A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,7 +116,12 @@
 			isa = PBXGroup;
 			children = (
 				D088D3B41F0861E20048B95A /* OklasoftRSS.h */,
+				D05D3B631F11B6310020627D /* RSSmodels.swift */,
+				D05D3B591F0F23EB0020627D /* NetworkClosures.swift */,
+				D088D3D61F0865380048B95A /* ReaderObserver.swift */,
+				D09CB6E51F098A9800E28DF8 /* Notifications.swift */,
 				D088D3B51F0861E20048B95A /* Info.plist */,
+				D05D3B351F0DE92B0020627D /* Errors.swift */,
 			);
 			path = OklasoftRSS;
 			sourceTree = "<group>";
@@ -84,6 +133,24 @@
 				D088D3C11F0861E20048B95A /* Info.plist */,
 			);
 			path = OklasoftRSSTests;
+			sourceTree = "<group>";
+		};
+		D088D3CB1F0863E40048B95A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D05D3B5D1F0F252D0020627D /* OklasoftError.xcodeproj */,
+				D088D3CC1F0863FB0048B95A /* OklasoftNetworking.xcodeproj */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D088D3CD1F0863FB0048B95A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D088D3D21F0863FB0048B95A /* OklasoftNetworking.framework */,
+				D088D3D41F0863FB0048B95A /* OklasoftNetworkingTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +215,7 @@
 				TargetAttributes = {
 					D088D3B01F0861E20048B95A = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 					};
 					D088D3B91F0861E20048B95A = {
 						CreatedOnToolsVersion = 9.0;
@@ -164,6 +232,16 @@
 			mainGroup = D088D3A71F0861E20048B95A;
 			productRefGroup = D088D3B21F0861E20048B95A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D05D3B5E1F0F252D0020627D /* Products */;
+					ProjectRef = D05D3B5D1F0F252D0020627D /* OklasoftError.xcodeproj */;
+				},
+				{
+					ProductGroup = D088D3CD1F0863FB0048B95A /* Products */;
+					ProjectRef = D088D3CC1F0863FB0048B95A /* OklasoftNetworking.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D088D3B01F0861E20048B95A /* OklasoftRSS */,
@@ -171,6 +249,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D05D3B621F0F252D0020627D /* OklasoftError.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OklasoftError.framework;
+			remoteRef = D05D3B611F0F252D0020627D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D088D3D21F0863FB0048B95A /* OklasoftNetworking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OklasoftNetworking.framework;
+			remoteRef = D088D3D11F0863FB0048B95A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D088D3D41F0863FB0048B95A /* OklasoftNetworkingTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = OklasoftNetworkingTests.xctest;
+			remoteRef = D088D3D31F0863FB0048B95A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D088D3AF1F0861E20048B95A /* Resources */ = {
@@ -194,6 +296,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D09CB6E61F098A9800E28DF8 /* Notifications.swift in Sources */,
+				D05D3B641F11B6310020627D /* RSSmodels.swift in Sources */,
+				D05D3B361F0DE92B0020627D /* Errors.swift in Sources */,
+				D05D3B5A1F0F23EB0020627D /* NetworkClosures.swift in Sources */,
+				D088D3D71F0865380048B95A /* ReaderObserver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +434,7 @@
 		D088D3C61F0861E20048B95A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -341,6 +449,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.oklasoft.OklasoftRSS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -348,6 +457,7 @@
 		D088D3C71F0861E20048B95A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -369,6 +479,7 @@
 		D088D3C91F0861E20048B95A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 26VT895967;
 				INFOPLIST_FILE = OklasoftRSSTests/Info.plist;
@@ -382,6 +493,7 @@
 		D088D3CA1F0861E20048B95A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 26VT895967;
 				INFOPLIST_FILE = OklasoftRSSTests/Info.plist;
@@ -411,6 +523,7 @@
 				D088D3C71F0861E20048B95A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D088D3C81F0861E20048B95A /* Build configuration list for PBXNativeTarget "OklasoftRSSTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +532,7 @@
 				D088D3CA1F0861E20048B95A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
