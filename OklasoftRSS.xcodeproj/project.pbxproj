@@ -16,6 +16,7 @@
 		D088D3D51F0864300048B95A /* OklasoftNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D088D3D21F0863FB0048B95A /* OklasoftNetworking.framework */; };
 		D088D3D71F0865380048B95A /* ReaderObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D088D3D61F0865380048B95A /* ReaderObserver.swift */; };
 		D09CB6E61F098A9800E28DF8 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09CB6E51F098A9800E28DF8 /* Notifications.swift */; };
+		D0CBAF901F19CF080025B819 /* RSSParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CBAF8F1F19CF080025B819 /* RSSParser.swift */; };
 		D0FEA9361F11FA44001AED7A /* OklasoftError.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D05D3B621F0F252D0020627D /* OklasoftError.framework */; };
 		D0FEA9391F1202AC001AED7A /* OklasoftError.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D05D3B621F0F252D0020627D /* OklasoftError.framework */; };
 		D0FEA93A1F1202B6001AED7A /* OklasoftNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D088D3D21F0863FB0048B95A /* OklasoftNetworking.framework */; };
@@ -66,6 +67,7 @@
 		D088D3CC1F0863FB0048B95A /* OklasoftNetworking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OklasoftNetworking.xcodeproj; path = ../OklasoftNetworking/OklasoftNetworking.xcodeproj; sourceTree = "<group>"; };
 		D088D3D61F0865380048B95A /* ReaderObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderObserver.swift; sourceTree = "<group>"; };
 		D09CB6E51F098A9800E28DF8 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		D0CBAF8F1F19CF080025B819 /* RSSParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 		D088D3B31F0861E20048B95A /* OklasoftRSS */ = {
 			isa = PBXGroup;
 			children = (
+				D0CBAF8B1F19CE980025B819 /* Parcers */,
 				D088D3B41F0861E20048B95A /* OklasoftRSS.h */,
 				D05D3B631F11B6310020627D /* RSSmodels.swift */,
 				D05D3B591F0F23EB0020627D /* NetworkClosures.swift */,
@@ -157,6 +160,14 @@
 				D088D3D41F0863FB0048B95A /* OklasoftNetworkingTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		D0CBAF8B1F19CE980025B819 /* Parcers */ = {
+			isa = PBXGroup;
+			children = (
+				D0CBAF8F1F19CF080025B819 /* RSSParser.swift */,
+			);
+			path = Parcers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D09CB6E61F098A9800E28DF8 /* Notifications.swift in Sources */,
+				D0CBAF901F19CF080025B819 /* RSSParser.swift in Sources */,
 				D05D3B641F11B6310020627D /* RSSmodels.swift in Sources */,
 				D05D3B361F0DE92B0020627D /* Errors.swift in Sources */,
 				D05D3B5A1F0F23EB0020627D /* NetworkClosures.swift in Sources */,

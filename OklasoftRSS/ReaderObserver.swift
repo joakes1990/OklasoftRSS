@@ -13,6 +13,10 @@ public protocol ReaderObserver {
     
     func receavedNewFeed(aNotification: Notification)
     
-//    func receavedNewStory(aNotification: Notification, for feed: Feed)
+    func receavedNewRSSStory(aNotification: Notification)
+    
+    func receavedNewAtomStory(aNotification: Notification)
+    
+    func receavedNewJSONStory(aNotification: Notification)
     
 }

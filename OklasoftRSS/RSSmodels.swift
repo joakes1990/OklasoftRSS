@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import OklasoftNetworking
 
 public struct Feed {
     let title: String
@@ -15,15 +16,28 @@ public struct Feed {
     let mimeType: mimeTypes
     let stories: [Story]
     
-    func updateStories() {
-        
+    func requestUpdatedStories() {
+        var callbackNotification: Notification.Name
+        switch mimeType {
+        case .rss, .rssXML:
+            callbackNotification = .finishedReceavingRSSStory
+            break
+        case .atom, .atomXML:
+            callbackNotification = .finishedReceavingAtomStory
+            break
+        case .json:
+            callbackNotification = .finishedReceavingJSONStory
+            break
+        }
+      URLSession.shared.getReturnedDataFrom(url: url, returning: callbackNotification)
     }
 }
 
 public struct Story {
     let title: String
     let url: URL
-    let content: String
+    let textContent: String?
+    let mediaContent: [URL]
     let pubdate: Date
     let read: Bool
     let feed: Feed
@@ -36,6 +50,5 @@ public enum mimeTypes: String {
     case atomXML = "application/atom+xml"
     case rss = "application/rss"
     case rssXML = "application/rss+xml"
-    case genaricXML = "text/xml"
     case json = "application/json"
 }
