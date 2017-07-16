@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import OklasoftNetworking
 
 class RSSParser: NSObject, XMLParserDelegate {
     
@@ -72,6 +73,18 @@ class RSSParser: NSObject, XMLParserDelegate {
                 break
             }
         }
+    }
+    
+    func parserDidEndDocument(_ parser: XMLParser) {
+        NotificationCenter.default.post(name: .finishedFindingStories,
+                                        object: nil,
+                                        userInfo: [feedURL:stories])
+    }
+    
+    func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
+        NotificationCenter.default.post(name: .errorFindingStories,
+                                        object: nil,
+                                        userInfo: [errorInfoKey:parseError])
     }
     
     func rfc822DateFromString(string: String) -> Date? {
