@@ -9,14 +9,43 @@
 import Foundation
 import OklasoftNetworking
 
-public protocol ReaderObserver {
+public class StoryConstructor {
     
-    func receavedNewFeed(aNotification: Notification)
+    static let shared: StoryConstructor = StoryConstructor()
     
-    func receavedNewRSSStory(aNotification: Notification)
+    init() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(receavedNewFeed(aNotification:)),
+                                               name: .finishedReceavingFeed,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(receavedNewRSSStory(aNotification:)),
+                                               name: .finishedReceavingRSSStory,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(receavedNewAtomStory(aNotification:)),
+                                               name: .finishedReceavingAtomStory,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(receavedNewJSONStory(aNotification:)),
+                                               name: .finishedReceavingJSONStory,
+                                               object: nil)
+    }
     
-    func receavedNewAtomStory(aNotification: Notification)
+    @objc func receavedNewFeed(aNotification: Notification) {
+        
+    }
     
-    func receavedNewJSONStory(aNotification: Notification)
+    @objc func receavedNewRSSStory(aNotification: Notification) {
+        
+    }
+    
+    @objc func receavedNewAtomStory(aNotification: Notification) {
+        
+    }
+    
+    @objc func receavedNewJSONStory(aNotification: Notification) {
+        
+    }
     
 }

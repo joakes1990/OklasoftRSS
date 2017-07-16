@@ -40,7 +40,7 @@ public struct Story {
     let mediaContent: [URL]
     let pubdate: Date
     let read: Bool
-    let feed: Feed
+    let feedURL: URL
 }
 
 public enum mimeTypes: String {
