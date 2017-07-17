@@ -12,7 +12,7 @@ import OklasoftNetworking
 class RSSParser: NSObject, XMLParserDelegate {
     
     var stories: [Story] = []
-    var element: parseValues?
+    fileprivate var element: parseValues?
     
     let feedURL: URL
     var url: URL?
@@ -115,7 +115,7 @@ class RSSParser: NSObject, XMLParserDelegate {
     }
     
     
-    enum parseValues: String {
+    fileprivate enum parseValues: String {
         typealias rawValue = String
         
         case item = "item"

@@ -9,12 +9,26 @@
 import Foundation
 import OklasoftNetworking
 
-public struct Feed {
+public class Feed {
     let title: String
     let url: URL
-    let lastUpdated: Date
+    var lastUpdated: Date
     let mimeType: mimeTypes
-    let stories: [Story]
+    var stories: [Story]
+    
+    init(title: String, url: URL, lastUpdated: Date, mimeType: mimeTypes, stories: [Story]) {
+        self.title = title
+        self.url = url
+        self.lastUpdated = lastUpdated
+        self.mimeType = mimeType
+        self.stories = stories
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(receaveUpdatedStories(anotification:)),
+                                               name: .finishedFindingStories,
+                                               object: nil)
+        requestUpdatedStories()
+    }
     
     func requestUpdatedStories() {
         var callbackNotification: Notification.Name
@@ -29,7 +43,22 @@ public struct Feed {
             callbackNotification = .finishedReceavingJSONStory
             break
         }
-      URLSession.shared.getReturnedDataFrom(url: url, returning: callbackNotification)
+        URLSession.shared.getReturnedDataFrom(url: url, with: <#T##networkCompletion?##networkCompletion?##(Data?, URLResponse?, Error?) -> Void#>)
+    }
+    
+    @objc func receaveUpdatedStories(anotification: Notification) {
+        guard let userInfo: [AnyHashable:Any] = anotification.userInfo,
+            let requester: URL = userInfo.keys.first as? URL,
+            let newStories: [Story] = (userInfo[requester] as? [Story]) ?? nil
+            else {
+                return
+        }
+        if requester == url {
+            // Functional AF
+            stories.insert(contentsOf: newStories.filter({$0.pubdate > lastUpdated}).sorted(by: {$0.pubdate > $1.pubdate}),
+                           at: 0)
+            lastUpdated = Date()
+        }
     }
 }
 

@@ -8,7 +8,9 @@
 
 import Foundation
 import OklasoftNetworking
+
 public extension URLSession {
+    
     static let identifyFeedsCompletion: networkCompletion = {(data, responce, error) in
         if let foundError:Error = error {
             NotificationCenter.default.post(name: .networkingErrorNotification,
@@ -36,6 +38,33 @@ public extension URLSession {
         NotificationCenter.default.post(name: .finishedReceavingFeed,
                                         object: nil,
                                         userInfo: [feedInfoKey:newFeed])
+    }
+    
+    static let identifyStoriesCompletion: networkCompletion = {(data, responce, error) in
+        if let foundError:Error = error {
+            NotificationCenter.default.post(name: .networkingErrorNotification,
+                                            object: nil,
+                                            userInfo:errorInfo(error: foundError).toDict())
+            return
+        }
+        guard let headers: URLResponse = responce,
+            let validData: Data = data,
+            let mimeType: mimeTypes = mimeTypes(rawValue:(headers.mimeType ?? "")),
+            let url: URL = headers.url
+            else {
+                return
+        }
+        switch mimeType {
+            case .rss, .rssXML:
+                let parser: XMLParser = XMLParser(data: validData)
+                let deligate: RSSParser = RSSParser(with: url)
+                parser.delegate = deligate
+                parser.parse()
+                break
+            case .atom, .atomXML:
+                let parser: XMLParser = XMLParser(data: validData)
+//                let deligate: RSSParser = RSSParser(with: url)
+        }
     }
     
 }

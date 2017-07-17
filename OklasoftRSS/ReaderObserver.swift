@@ -33,6 +33,9 @@ public class StoryConstructor {
     }
     
     @objc func receavedNewFeed(aNotification: Notification) {
+        guard let userInfo: [AnyHashable:Any] = aNotification.userInfo else {
+            return
+        }
         
     }
     
