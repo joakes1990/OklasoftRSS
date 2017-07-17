@@ -70,6 +70,7 @@ class RSSParser: NSObject, XMLParserDelegate {
                 pubDate = nil
                 break
             default:
+                element = nil
                 break
             }
         }
