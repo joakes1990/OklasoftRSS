@@ -21,7 +21,6 @@
 		D0AB26021F2259AF00E95075 /* OklasoftXML.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB26011F2259AF00E95075 /* OklasoftXML.swift */; };
 		D0AB26041F225CA800E95075 /* HTMLtoPlainTextFormater.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB26031F225CA800E95075 /* HTMLtoPlainTextFormater.swift */; };
 		D0CBAF901F19CF080025B819 /* RSSDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CBAF8F1F19CF080025B819 /* RSSDelegate.swift */; };
-		D0F963571F2272E600924787 /* BridgingHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = D0F963561F2272E600924787 /* BridgingHeader.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +54,6 @@
 		D0AB26011F2259AF00E95075 /* OklasoftXML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OklasoftXML.swift; sourceTree = "<group>"; };
 		D0AB26031F225CA800E95075 /* HTMLtoPlainTextFormater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLtoPlainTextFormater.swift; sourceTree = "<group>"; };
 		D0CBAF8F1F19CF080025B819 /* RSSDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSDelegate.swift; sourceTree = "<group>"; };
-		D0F963561F2272E600924787 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		FA05BDF41C1933122BAB3CEB /* Pods-OklasoftRSS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OklasoftRSS.release.xcconfig"; path = "Pods/Target Support Files/Pods-OklasoftRSS/Pods-OklasoftRSS.release.xcconfig"; sourceTree = "<group>"; };
 		FC1F0A3C0482D8B8C9EAD221 /* Pods_OklasoftRSS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OklasoftRSS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -124,7 +122,6 @@
 			children = (
 				D0CBAF8B1F19CE980025B819 /* Parsers */,
 				D088D3B41F0861E20048B95A /* OklasoftRSS.h */,
-				D0F963561F2272E600924787 /* BridgingHeader.h */,
 				D05D3B631F11B6310020627D /* RSSmodels.swift */,
 				D05D3B591F0F23EB0020627D /* NetworkClosures.swift */,
 				D088D3D61F0865380048B95A /* ReaderObserver.swift */,
@@ -173,7 +170,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D088D3C21F0861E20048B95A /* OklasoftRSS.h in Headers */,
-				D0F963571F2272E600924787 /* BridgingHeader.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,8 +518,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.oklasoft.OklasoftRSS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = /Users/justin/Development/Apple/Frameworks/OklasoftRSS/OklasoftRSS/BridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -547,7 +544,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.oklasoft.OklasoftRSS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = /Users/justin/Development/Apple/Frameworks/OklasoftRSS/OklasoftRSS/BridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

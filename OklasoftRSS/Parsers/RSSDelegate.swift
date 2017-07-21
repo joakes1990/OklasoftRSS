@@ -8,7 +8,7 @@
 
 import Foundation
 import OklasoftNetworking
-import DBGHTML
+import WSLHTMLEntities
 
 class RSSDelegate: NSObject, XMLParserDelegate {
     
@@ -107,7 +107,7 @@ class RSSDelegate: NSObject, XMLParserDelegate {
     func pushStory() {
         guard let storyURL: URL = url,
             let storyTitle: String = title,
-//            let storyHTML: String = dbghht htmlContent,
+            let storyHTML: String = htmlContent,
             let storyDate: Date = pubDate
             else {
                 return
@@ -115,7 +115,7 @@ class RSSDelegate: NSObject, XMLParserDelegate {
         let newStory: baseStory = baseStory(title: storyTitle,
                                             url: storyURL,
                                             textContent: <#T##String#>,
-                                            htmlContent: storyHTML,
+                                            htmlContent: WSLHTMLEntities.convertHTMLtoString(storyHTML),
                                             pubdate: storyDate,
                                             read: false,
                                             feedURL: feedURL,
