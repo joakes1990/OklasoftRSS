@@ -92,6 +92,10 @@ public struct baseStory: Story {
     public let feedURL: URL
     public let imageContent: [URL]?
     public let author: String?
+    
+    func extractTextFromHTML(html: String) {
+        
+    }
 }
 
 public struct PodCast: Story {

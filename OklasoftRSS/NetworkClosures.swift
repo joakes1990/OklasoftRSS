@@ -57,7 +57,7 @@ public extension URLSession {
         switch mimeType {
             case .rss, .rssXML:
                 let parser: XMLParser = XMLParser(data: validData)
-                let deligate: RSSParser = RSSParser(with: url)
+                let deligate: RSSDelegate = RSSDelegate(with: url)
                 parser.delegate = deligate
                 parser.parse()
                 break

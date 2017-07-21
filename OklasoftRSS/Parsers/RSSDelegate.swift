@@ -8,8 +8,9 @@
 
 import Foundation
 import OklasoftNetworking
+import DBGHTML
 
-class RSSParser: NSObject, XMLParserDelegate {
+class RSSDelegate: NSObject, XMLParserDelegate {
     
     var stories: [Story] = []
     fileprivate var element: parseValues?
@@ -106,7 +107,7 @@ class RSSParser: NSObject, XMLParserDelegate {
     func pushStory() {
         guard let storyURL: URL = url,
             let storyTitle: String = title,
-            let storyHTML: String = htmlContent,
+//            let storyHTML: String = dbghht htmlContent,
             let storyDate: Date = pubDate
             else {
                 return

@@ -9,7 +9,7 @@
 import Foundation
 import OklasoftNetworking
 
-class AtomParser: RSSParser {
+class AtomDelegate: RSSDelegate {
     
     fileprivate var element: parseValues?
     

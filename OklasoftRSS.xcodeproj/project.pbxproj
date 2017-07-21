@@ -7,16 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		873AC7E267039B7B8F5ED279 /* Pods_OklasoftRSSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 956C484A9B9EA5BA3051F373 /* Pods_OklasoftRSSTests.framework */; };
+		8A45DF5691A1A57367388854 /* Pods_OklasoftRSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC1F0A3C0482D8B8C9EAD221 /* Pods_OklasoftRSS.framework */; };
 		D05D3B361F0DE92B0020627D /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D3B351F0DE92B0020627D /* Errors.swift */; };
 		D05D3B5A1F0F23EB0020627D /* NetworkClosures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D3B591F0F23EB0020627D /* NetworkClosures.swift */; };
 		D05D3B641F11B6310020627D /* RSSmodels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D3B631F11B6310020627D /* RSSmodels.swift */; };
-		D06B221E1F1C536F00027279 /* AtomParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06B221D1F1C536F00027279 /* AtomParser.swift */; };
+		D06B221E1F1C536F00027279 /* AtomDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06B221D1F1C536F00027279 /* AtomDelegate.swift */; };
 		D088D3BB1F0861E20048B95A /* OklasoftRSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D088D3B11F0861E20048B95A /* OklasoftRSS.framework */; };
 		D088D3C01F0861E20048B95A /* OklasoftRSSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D088D3BF1F0861E20048B95A /* OklasoftRSSTests.swift */; };
 		D088D3C21F0861E20048B95A /* OklasoftRSS.h in Headers */ = {isa = PBXBuildFile; fileRef = D088D3B41F0861E20048B95A /* OklasoftRSS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D088D3D71F0865380048B95A /* ReaderObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D088D3D61F0865380048B95A /* ReaderObserver.swift */; };
 		D09CB6E61F098A9800E28DF8 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09CB6E51F098A9800E28DF8 /* Notifications.swift */; };
-		D0CBAF901F19CF080025B819 /* RSSParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CBAF8F1F19CF080025B819 /* RSSParser.swift */; };
+		D0AB26021F2259AF00E95075 /* OklasoftXML.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB26011F2259AF00E95075 /* OklasoftXML.swift */; };
+		D0AB26041F225CA800E95075 /* HTMLtoPlainTextFormater.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB26031F225CA800E95075 /* HTMLtoPlainTextFormater.swift */; };
+		D0CBAF901F19CF080025B819 /* RSSDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CBAF8F1F19CF080025B819 /* RSSDelegate.swift */; };
+		D0F963571F2272E600924787 /* BridgingHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = D0F963561F2272E600924787 /* BridgingHeader.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,10 +35,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		422DB42520232C7C88EDB137 /* Pods-OklasoftRSS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OklasoftRSS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OklasoftRSS/Pods-OklasoftRSS.debug.xcconfig"; sourceTree = "<group>"; };
+		5A122FA3381F0D2BEF12E115 /* Pods-OklasoftRSSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OklasoftRSSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OklasoftRSSTests/Pods-OklasoftRSSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		956C484A9B9EA5BA3051F373 /* Pods_OklasoftRSSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OklasoftRSSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D9321222AC0BA6BF32C2F40 /* Pods-OklasoftRSSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OklasoftRSSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OklasoftRSSTests/Pods-OklasoftRSSTests.release.xcconfig"; sourceTree = "<group>"; };
 		D05D3B351F0DE92B0020627D /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		D05D3B591F0F23EB0020627D /* NetworkClosures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClosures.swift; sourceTree = "<group>"; };
 		D05D3B631F11B6310020627D /* RSSmodels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSmodels.swift; sourceTree = "<group>"; };
-		D06B221D1F1C536F00027279 /* AtomParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomParser.swift; sourceTree = "<group>"; };
+		D06B221D1F1C536F00027279 /* AtomDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomDelegate.swift; sourceTree = "<group>"; };
 		D080973F1F1C0DE8001D99D5 /* OklasoftCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OklasoftCore.xcodeproj; path = ../OklasoftCore/OklasoftCore.xcodeproj; sourceTree = "<group>"; };
 		D088D3B11F0861E20048B95A /* OklasoftRSS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OklasoftRSS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D088D3B41F0861E20048B95A /* OklasoftRSS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OklasoftRSS.h; sourceTree = "<group>"; };
@@ -43,7 +52,12 @@
 		D088D3C11F0861E20048B95A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D088D3D61F0865380048B95A /* ReaderObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderObserver.swift; sourceTree = "<group>"; };
 		D09CB6E51F098A9800E28DF8 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
-		D0CBAF8F1F19CF080025B819 /* RSSParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSParser.swift; sourceTree = "<group>"; };
+		D0AB26011F2259AF00E95075 /* OklasoftXML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OklasoftXML.swift; sourceTree = "<group>"; };
+		D0AB26031F225CA800E95075 /* HTMLtoPlainTextFormater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLtoPlainTextFormater.swift; sourceTree = "<group>"; };
+		D0CBAF8F1F19CF080025B819 /* RSSDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSDelegate.swift; sourceTree = "<group>"; };
+		D0F963561F2272E600924787 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		FA05BDF41C1933122BAB3CEB /* Pods-OklasoftRSS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OklasoftRSS.release.xcconfig"; path = "Pods/Target Support Files/Pods-OklasoftRSS/Pods-OklasoftRSS.release.xcconfig"; sourceTree = "<group>"; };
+		FC1F0A3C0482D8B8C9EAD221 /* Pods_OklasoftRSS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OklasoftRSS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A45DF5691A1A57367388854 /* Pods_OklasoftRSS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,12 +74,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				D088D3BB1F0861E20048B95A /* OklasoftRSS.framework in Frameworks */,
+				873AC7E267039B7B8F5ED279 /* Pods_OklasoftRSSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BEEFE24FBBB77525226EF577 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				422DB42520232C7C88EDB137 /* Pods-OklasoftRSS.debug.xcconfig */,
+				FA05BDF41C1933122BAB3CEB /* Pods-OklasoftRSS.release.xcconfig */,
+				5A122FA3381F0D2BEF12E115 /* Pods-OklasoftRSSTests.debug.xcconfig */,
+				9D9321222AC0BA6BF32C2F40 /* Pods-OklasoftRSSTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D08097401F1C0DE8001D99D5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +106,7 @@
 				D088D3BE1F0861E20048B95A /* OklasoftRSSTests */,
 				D088D3CB1F0863E40048B95A /* Frameworks */,
 				D088D3B21F0861E20048B95A /* Products */,
+				BEEFE24FBBB77525226EF577 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +124,7 @@
 			children = (
 				D0CBAF8B1F19CE980025B819 /* Parsers */,
 				D088D3B41F0861E20048B95A /* OklasoftRSS.h */,
+				D0F963561F2272E600924787 /* BridgingHeader.h */,
 				D05D3B631F11B6310020627D /* RSSmodels.swift */,
 				D05D3B591F0F23EB0020627D /* NetworkClosures.swift */,
 				D088D3D61F0865380048B95A /* ReaderObserver.swift */,
@@ -119,6 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				D080973F1F1C0DE8001D99D5 /* OklasoftCore.xcodeproj */,
+				FC1F0A3C0482D8B8C9EAD221 /* Pods_OklasoftRSS.framework */,
+				956C484A9B9EA5BA3051F373 /* Pods_OklasoftRSSTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -126,8 +157,10 @@
 		D0CBAF8B1F19CE980025B819 /* Parsers */ = {
 			isa = PBXGroup;
 			children = (
-				D0CBAF8F1F19CF080025B819 /* RSSParser.swift */,
-				D06B221D1F1C536F00027279 /* AtomParser.swift */,
+				D0AB26011F2259AF00E95075 /* OklasoftXML.swift */,
+				D0AB26031F225CA800E95075 /* HTMLtoPlainTextFormater.swift */,
+				D0CBAF8F1F19CF080025B819 /* RSSDelegate.swift */,
+				D06B221D1F1C536F00027279 /* AtomDelegate.swift */,
 			);
 			path = Parsers;
 			sourceTree = "<group>";
@@ -140,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D088D3C21F0861E20048B95A /* OklasoftRSS.h in Headers */,
+				D0F963571F2272E600924787 /* BridgingHeader.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,10 +184,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D088D3C51F0861E20048B95A /* Build configuration list for PBXNativeTarget "OklasoftRSS" */;
 			buildPhases = (
+				DBAD77D1FE1F5EC888E4212F /* [CP] Check Pods Manifest.lock */,
 				D088D3AC1F0861E20048B95A /* Sources */,
 				D088D3AD1F0861E20048B95A /* Frameworks */,
 				D088D3AE1F0861E20048B95A /* Headers */,
 				D088D3AF1F0861E20048B95A /* Resources */,
+				B5F657FFCC824E12E156B36F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -168,9 +204,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D088D3C81F0861E20048B95A /* Build configuration list for PBXNativeTarget "OklasoftRSSTests" */;
 			buildPhases = (
+				D5C304D67DFF8653AF948984 /* [CP] Check Pods Manifest.lock */,
 				D088D3B61F0861E20048B95A /* Sources */,
 				D088D3B71F0861E20048B95A /* Frameworks */,
 				D088D3B81F0861E20048B95A /* Resources */,
+				339A609CBD8C5A9D74047D2F /* [CP] Embed Pods Frameworks */,
+				D07DCA03ABFB25AE5D657759 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -242,17 +281,97 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		339A609CBD8C5A9D74047D2F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OklasoftRSSTests/Pods-OklasoftRSSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B5F657FFCC824E12E156B36F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OklasoftRSS/Pods-OklasoftRSS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D07DCA03ABFB25AE5D657759 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OklasoftRSSTests/Pods-OklasoftRSSTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D5C304D67DFF8653AF948984 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DBAD77D1FE1F5EC888E4212F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D088D3AC1F0861E20048B95A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0AB26021F2259AF00E95075 /* OklasoftXML.swift in Sources */,
 				D09CB6E61F098A9800E28DF8 /* Notifications.swift in Sources */,
-				D0CBAF901F19CF080025B819 /* RSSParser.swift in Sources */,
+				D0CBAF901F19CF080025B819 /* RSSDelegate.swift in Sources */,
 				D05D3B641F11B6310020627D /* RSSmodels.swift in Sources */,
+				D0AB26041F225CA800E95075 /* HTMLtoPlainTextFormater.swift in Sources */,
 				D05D3B361F0DE92B0020627D /* Errors.swift in Sources */,
 				D05D3B5A1F0F23EB0020627D /* NetworkClosures.swift in Sources */,
-				D06B221E1F1C536F00027279 /* AtomParser.swift in Sources */,
+				D06B221E1F1C536F00027279 /* AtomDelegate.swift in Sources */,
 				D088D3D71F0865380048B95A /* ReaderObserver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,6 +505,7 @@
 		};
 		D088D3C61F0861E20048B95A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 422DB42520232C7C88EDB137 /* Pods-OklasoftRSS.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -402,6 +522,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.oklasoft.OklasoftRSS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/justin/Development/Apple/Frameworks/OklasoftRSS/OklasoftRSS/BridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
@@ -409,6 +530,7 @@
 		};
 		D088D3C71F0861E20048B95A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA05BDF41C1933122BAB3CEB /* Pods-OklasoftRSS.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -425,12 +547,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.oklasoft.OklasoftRSS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/justin/Development/Apple/Frameworks/OklasoftRSS/OklasoftRSS/BridgingHeader.h;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
 		D088D3C91F0861E20048B95A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A122FA3381F0D2BEF12E115 /* Pods-OklasoftRSSTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -445,6 +569,7 @@
 		};
 		D088D3CA1F0861E20048B95A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D9321222AC0BA6BF32C2F40 /* Pods-OklasoftRSSTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
