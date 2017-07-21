@@ -12,6 +12,7 @@ import OklasoftNetworking
 public class Feed {
     let title: String
     let url: URL
+    let favIcon: URL
     var lastUpdated: Date
     let mimeType: mimeTypes
     var stories: [Story]
@@ -30,6 +31,10 @@ public class Feed {
         requestUpdatedStories()
     }
     
+    func requestUpdatedFavIcon() {
+        
+    }
+    
     func requestUpdatedStories() {
         var callbackNotification: Notification.Name
         switch mimeType {
@@ -41,6 +46,8 @@ public class Feed {
             break
         case .json:
             callbackNotification = .finishedReceavingJSONStory
+            break
+        default:
             break
         }
         URLSession.shared.getReturnedDataFrom(url: url, with: <#T##networkCompletion?##networkCompletion?##(Data?, URLResponse?, Error?) -> Void#>)
@@ -62,22 +69,73 @@ public class Feed {
     }
 }
 
-public struct Story {
-    let title: String
-    let url: URL
-    let textContent: String?
-    let mediaContent: [URL]
-    let pubdate: Date
-    let read: Bool
-    let feedURL: URL
+public protocol Story {
+    
+    var title: String {get}
+    var url: URL {get}
+    var textContent: String {get}
+    var htmlContent: String {get}
+    var pubdate: Date {get}
+    var read: Bool {get set}
+    var feedURL: URL {get}
+    var imageContent: [URL]? {get}
+    var author: String? {get}
+}
+
+public struct baseStory: Story {
+    public let title: String
+    public let url: URL
+    public let textContent: String
+    public let htmlContent: String
+    public let pubdate: Date
+    public var read: Bool
+    public let feedURL: URL
+    public let imageContent: [URL]?
+    public let author: String?
+}
+
+public struct PodCast: Story {
+    
+    public let title: String
+    public let url: URL
+    public let textContent: String
+    public let htmlContent: String
+    public let pubdate: Date
+    public var read: Bool
+    public let feedURL: URL
+    public let imageContent: [URL]?
+    public let author: String?
+    
+    let audioContent: [URL]
+    
+    init(story: Story, audio: [URL]) {
+        self.title = story.title
+        self.url = story.url
+        self.textContent = story.textContent
+        self.htmlContent = story.htmlContent
+        self.pubdate = story.pubdate
+        self.read = story.read
+        self.feedURL = story.feedURL
+        self.imageContent = story.imageContent
+        self.author = story.author
+        self.audioContent = audio
+    }
 }
 
 public enum mimeTypes: String {
-    public typealias RawValue = String
+    public typealias rawValue = String
     
     case atom = "application/atom"
     case atomXML = "application/atom+xml"
     case rss = "application/rss"
     case rssXML = "application/rss+xml"
     case json = "application/json"
+    case html = "text/html"
+    case m4a = "audio/x-m4a"
+    case mpegA = "audio/mpeg"
+    case mpeg3 = "audio/mpeg3"
+    case xmpeg3 = "audio/x-mpeg-3"
+    case aac = "audio/aac"
+    case mp4A = "audio/mp4"
+    
 }

@@ -17,8 +17,8 @@ class RSSParser: NSObject, XMLParserDelegate {
     let feedURL: URL
     var url: URL?
     var title: String?
-    var textContent: String?
-    var mediaContent: [URL]?
+    var htmlContent: String?
+    var audioContent: [URL]?
     var pubDate: Date?
     
     init(with url: URL) {
@@ -29,6 +29,13 @@ class RSSParser: NSObject, XMLParserDelegate {
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         if let rssProperty: parseValues = parseValues(rawValue: elementName) {
+            if rssProperty == .enclosure, let _: mimeTypes = mimeTypes(rawValue: attributeDict["type"] ?? ""),
+            let audioLocation: String = attributeDict["url"] {
+                guard let audioURL: URL = URL(string: audioLocation) else {
+                    return
+                }
+                audioContent == nil ? audioContent = [audioURL] : audioContent?.append(audioURL)
+            }
             element = rssProperty
         }
     }
@@ -48,7 +55,7 @@ class RSSParser: NSObject, XMLParserDelegate {
             url = itemURL
             break
         case .description:
-            textContent = textContent == nil ? string : "\(String(describing: textContent))\(string)"
+            htmlContent = htmlContent == nil ? string : "\(String(describing: htmlContent))\(string)"
             break
         case .pubDate:
             pubDate = rfc822DateFromString(string: string)
@@ -65,8 +72,8 @@ class RSSParser: NSObject, XMLParserDelegate {
                 pushStory()
                 url = nil
                 title = nil
-                textContent = nil
-                mediaContent = nil
+                htmlContent = nil
+                audioContent = nil
                 pubDate = nil
                 break
             default:
@@ -99,20 +106,26 @@ class RSSParser: NSObject, XMLParserDelegate {
     func pushStory() {
         guard let storyURL: URL = url,
             let storyTitle: String = title,
-            let storyText: String = textContent,
-            let storyMedia: [URL] = mediaContent,
+            let storyHTML: String = htmlContent,
             let storyDate: Date = pubDate
             else {
                 return
         }
-        let newStory: Story = Story(title: storyTitle,
-                                    url: storyURL,
-                                    textContent: storyText,
-                                    mediaContent: storyMedia,
-                                    pubdate: storyDate,
-                                    read: false,
-                                    feedURL: feedURL)
-        stories.append(newStory)
+        let newStory: baseStory = baseStory(title: storyTitle,
+                                            url: storyURL,
+                                            textContent: <#T##String#>,
+                                            htmlContent: storyHTML,
+                                            pubdate: storyDate,
+                                            read: false,
+                                            feedURL: feedURL,
+                                            imageContent: nil,
+                                            author: nil)
+        if let storyaudio: [URL] = audioContent {
+            let podCast: PodCast = PodCast(story: newStory, audio: storyaudio)
+            stories.append(podCast)
+        } else {
+            stories.append(newStory)
+        }
     }
     
     
@@ -124,6 +137,7 @@ class RSSParser: NSObject, XMLParserDelegate {
         case link = "link"
         case description = "description"
         case pubDate = "pubDate"
+        case enclosure = "enclosure"
         
     }
 }

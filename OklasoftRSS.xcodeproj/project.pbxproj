@@ -94,7 +94,7 @@
 		D088D3B31F0861E20048B95A /* OklasoftRSS */ = {
 			isa = PBXGroup;
 			children = (
-				D0CBAF8B1F19CE980025B819 /* Parcers */,
+				D0CBAF8B1F19CE980025B819 /* Parsers */,
 				D088D3B41F0861E20048B95A /* OklasoftRSS.h */,
 				D05D3B631F11B6310020627D /* RSSmodels.swift */,
 				D05D3B591F0F23EB0020627D /* NetworkClosures.swift */,
@@ -123,13 +123,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D0CBAF8B1F19CE980025B819 /* Parcers */ = {
+		D0CBAF8B1F19CE980025B819 /* Parsers */ = {
 			isa = PBXGroup;
 			children = (
 				D0CBAF8F1F19CF080025B819 /* RSSParser.swift */,
 				D06B221D1F1C536F00027279 /* AtomParser.swift */,
 			);
-			path = Parcers;
+			path = Parsers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

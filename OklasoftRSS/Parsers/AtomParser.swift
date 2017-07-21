@@ -9,7 +9,7 @@
 import Foundation
 import OklasoftNetworking
 
-class AtomParser: RSSParser, XMLParserDelegate {
+class AtomParser: RSSParser {
     
     fileprivate var element: parseValues?
     
@@ -19,7 +19,10 @@ class AtomParser: RSSParser, XMLParserDelegate {
             
             switch atomProperty {
             case .link:
-                if let altLink: String = attributeDict.values[attributeDict.keys.first(where: {$0 == "rel"})] {
+                if let _: String = attributeDict["rel"] == "alternate" {
+                    element = .link
+                }
+                    altLink: String = attributeDict.values[attributeDict.keys["rel"]] {
                     element = altLink == "alternate" ? .link : nil
                     // pseudo code then guard let href come from attrdict and set it to the title property else break
                 }
@@ -44,7 +47,7 @@ class AtomParser: RSSParser, XMLParserDelegate {
             }
         }
     }
-    
+    fileprivate enum 
     fileprivate enum parseValues: String {
         typealias RawValue = String
         
