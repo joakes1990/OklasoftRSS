@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		873AC7E267039B7B8F5ED279 /* Pods_OklasoftRSSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 956C484A9B9EA5BA3051F373 /* Pods_OklasoftRSSTests.framework */; };
 		8A45DF5691A1A57367388854 /* Pods_OklasoftRSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC1F0A3C0482D8B8C9EAD221 /* Pods_OklasoftRSS.framework */; };
+		D0333CF81F22A25F008D1446 /* HTMLtoString.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0333CF71F22A25F008D1446 /* HTMLtoString.swift */; };
 		D05D3B361F0DE92B0020627D /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D3B351F0DE92B0020627D /* Errors.swift */; };
 		D05D3B5A1F0F23EB0020627D /* NetworkClosures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D3B591F0F23EB0020627D /* NetworkClosures.swift */; };
 		D05D3B641F11B6310020627D /* RSSmodels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D3B631F11B6310020627D /* RSSmodels.swift */; };
@@ -38,6 +39,7 @@
 		5A122FA3381F0D2BEF12E115 /* Pods-OklasoftRSSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OklasoftRSSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OklasoftRSSTests/Pods-OklasoftRSSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		956C484A9B9EA5BA3051F373 /* Pods_OklasoftRSSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OklasoftRSSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D9321222AC0BA6BF32C2F40 /* Pods-OklasoftRSSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OklasoftRSSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OklasoftRSSTests/Pods-OklasoftRSSTests.release.xcconfig"; sourceTree = "<group>"; };
+		D0333CF71F22A25F008D1446 /* HTMLtoString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLtoString.swift; sourceTree = "<group>"; };
 		D05D3B351F0DE92B0020627D /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		D05D3B591F0F23EB0020627D /* NetworkClosures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClosures.swift; sourceTree = "<group>"; };
 		D05D3B631F11B6310020627D /* RSSmodels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSmodels.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				D0AB26031F225CA800E95075 /* HTMLtoPlainTextFormater.swift */,
 				D0CBAF8F1F19CF080025B819 /* RSSDelegate.swift */,
 				D06B221D1F1C536F00027279 /* AtomDelegate.swift */,
+				D0333CF71F22A25F008D1446 /* HTMLtoString.swift */,
 			);
 			path = Parsers;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0333CF81F22A25F008D1446 /* HTMLtoString.swift in Sources */,
 				D0AB26021F2259AF00E95075 /* OklasoftXML.swift in Sources */,
 				D09CB6E61F098A9800E28DF8 /* Notifications.swift in Sources */,
 				D0CBAF901F19CF080025B819 /* RSSDelegate.swift in Sources */,
