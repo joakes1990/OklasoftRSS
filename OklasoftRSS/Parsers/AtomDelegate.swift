@@ -13,41 +13,41 @@ class AtomDelegate: RSSDelegate {
     
     fileprivate var element: parseValues?
     
-    override func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
-        if let atomProperty: parseValues = parseValues(rawValue: elementName) {
-            element = atomProperty
-            
-            switch atomProperty {
-            case .link:
-                if let _: String = attributeDict["rel"] == "alternate" {
-                    element = .link
-                }
-                    altLink: String = attributeDict.values[attributeDict.keys["rel"]] {
-                    element = altLink == "alternate" ? .link : nil
-                    // pseudo code then guard let href come from attrdict and set it to the title property else break
-                }
-            break
-            }
-        }
-    }
+//    override func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+//        if let atomProperty: parseValues = parseValues(rawValue: elementName) {
+//            element = atomProperty
+//
+//            switch atomProperty {
+//            case .link:
+//                if let _: String = attributeDict["rel"] == "alternate" {
+//                    element = .link
+//                }
+//                    altLink: String = attributeDict.values[attributeDict.keys["rel"]] {
+//                    element = altLink == "alternate" ? .link : nil
+//                    // pseudo code then guard let href come from attrdict and set it to the title property else break
+//                }
+//            break
+//            }
+//        }
+//    }
     
-    override func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        if let atomProperty: parseValues = parseValues(rawValue: elementName) {
-            switch atomProperty {
-            case .entry:
-                pushStory()
-                url = nil
-                title = nil
-                textContent = nil
-                mediaContent = nil
-                pubDate = nil
-                break
-            default:
-                break
-            }
-        }
-    }
-    fileprivate enum 
+//    override func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+//        if let atomProperty: parseValues = parseValues(rawValue: elementName) {
+//            switch atomProperty {
+//            case .entry:
+//                pushStory()
+//                url = nil
+//                title = nil
+//                textContent = nil
+//                mediaContent = nil
+//                pubDate = nil
+//                break
+//            default:
+//                break
+//            }
+//        }
+//    }
+
     fileprivate enum parseValues: String {
         typealias RawValue = String
         

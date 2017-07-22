@@ -9,6 +9,7 @@
 import Foundation
 import OklasoftNetworking
 
+
 public class Feed {
     let title: String
     let url: URL
@@ -17,12 +18,12 @@ public class Feed {
     let mimeType: mimeTypes
     var stories: [Story]
     
-    init(title: String, url: URL, lastUpdated: Date, mimeType: mimeTypes, stories: [Story]) {
+    init(title: String, url: URL, lastUpdated: Date, mimeType: mimeTypes) {
         self.title = title
         self.url = url
         self.lastUpdated = lastUpdated
         self.mimeType = mimeType
-        self.stories = stories
+        self.stories = []
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(receaveUpdatedStories(anotification:)),
@@ -41,10 +42,13 @@ public class Feed {
             if let foundError: Error = error {
                 NotificationCenter.default.post(name: .feedIdentificationError,
                                                 object: nil,
-                                                userInfo: [ErrorUserInfoKey:foundError])
+                                                userInfo: [errorInfoKey:foundError])
                 return
             }
-            let parser: XMLParser = XMLParser(data: data)
+            guard let validData: Data = data else {
+                return
+            }
+            let parser: XMLParser = XMLParser(data: validData)
             switch unownedSelf.mimeType {
             case .atom, .atomXML:
                 parser.parseAtomFeed(fromParent: unownedSelf.url)
@@ -122,7 +126,6 @@ public struct PodCast: Story {
         self.pubdate = story.pubdate
         self.read = story.read
         self.feedURL = story.feedURL
-        self.imageContent = story.imageContent
         self.author = story.author
         self.audioContent = audio
     }

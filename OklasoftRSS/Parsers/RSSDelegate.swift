@@ -8,7 +8,6 @@
 
 import Foundation
 import OklasoftNetworking
-import WSLHTMLEntities
 
 class RSSDelegate: NSObject, XMLParserDelegate {
     

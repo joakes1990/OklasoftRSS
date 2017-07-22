@@ -11,7 +11,7 @@ import Foundation
 public extension XMLParser {
     
     public func parseRSSFeed(fromParent url: URL) {
-        let rssDelegate: RSSParser = RSSParser(with: url)
+        let rssDelegate: RSSDelegate = RSSDelegate(with: url)
         delegate = rssDelegate
         parse()
     }
