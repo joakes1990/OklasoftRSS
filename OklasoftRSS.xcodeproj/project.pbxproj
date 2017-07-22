@@ -92,6 +92,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D07276A71F22F75F006BC3AC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D0333CF71F22A25F008D1446 /* HTMLtoString.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		D08097401F1C0DE8001D99D5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +130,7 @@
 		D088D3B31F0861E20048B95A /* OklasoftRSS */ = {
 			isa = PBXGroup;
 			children = (
+				D07276A71F22F75F006BC3AC /* Extensions */,
 				D0CBAF8B1F19CE980025B819 /* Parsers */,
 				D088D3B41F0861E20048B95A /* OklasoftRSS.h */,
 				D05D3B631F11B6310020627D /* RSSmodels.swift */,
@@ -160,7 +169,6 @@
 				D0AB26031F225CA800E95075 /* HTMLtoPlainTextFormater.swift */,
 				D0CBAF8F1F19CF080025B819 /* RSSDelegate.swift */,
 				D06B221D1F1C536F00027279 /* AtomDelegate.swift */,
-				D0333CF71F22A25F008D1446 /* HTMLtoString.swift */,
 			);
 			path = Parsers;
 			sourceTree = "<group>";

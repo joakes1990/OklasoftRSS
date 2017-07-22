@@ -36,21 +36,26 @@ public class Feed {
     }
     
     func requestUpdatedStories() {
-        var callbackNotification: Notification.Name
-        switch mimeType {
-        case .rss, .rssXML:
-            callbackNotification = .finishedReceavingRSSStory
-            break
-        case .atom, .atomXML:
-            callbackNotification = .finishedReceavingAtomStory
-            break
-        case .json:
-            callbackNotification = .finishedReceavingJSONStory
-            break
-        default:
-            break
+        unowned let unownedSelf: Feed = self
+        URLSession.shared.getReturnedDataFrom(url: url) { (data, respone, error) in
+            if let foundError: Error = error {
+                NotificationCenter.default.post(name: .feedIdentificationError,
+                                                object: nil,
+                                                userInfo: [ErrorUserInfoKey:foundError])
+                return
+            }
+            let parser: XMLParser = XMLParser(data: data)
+            switch unownedSelf.mimeType {
+            case .atom, .atomXML:
+                parser.parseAtomFeed(fromParent: unownedSelf.url)
+                break
+            case .rss, .rssXML:
+                parser.parseRSSFeed(fromParent: unownedSelf.url)
+                break
+            default:
+                return
+            }
         }
-        URLSession.shared.getReturnedDataFrom(url: url, with: <#T##networkCompletion?##networkCompletion?##(Data?, URLResponse?, Error?) -> Void#>)
     }
     
     @objc func receaveUpdatedStories(anotification: Notification) {
@@ -78,7 +83,6 @@ public protocol Story {
     var pubdate: Date {get}
     var read: Bool {get set}
     var feedURL: URL {get}
-    var imageContent: [URL]? {get}
     var author: String? {get}
 }
 
@@ -90,7 +94,6 @@ public struct baseStory: Story {
     public let pubdate: Date
     public var read: Bool
     public let feedURL: URL
-    public let imageContent: [URL]?
     public let author: String?
     
     func extractTextFromHTML(html: String) {
@@ -107,7 +110,6 @@ public struct PodCast: Story {
     public let pubdate: Date
     public var read: Bool
     public let feedURL: URL
-    public let imageContent: [URL]?
     public let author: String?
     
     let audioContent: [URL]

@@ -18,4 +18,5 @@ public extension Notification.Name {
     static let feedIdentificationError = Notification.Name("notificationError")
     static let finishedFindingStories = Notification.Name("finishedFindingStories")
     static let errorFindingStories = Notification.Name("errorFindingStories")
+    static let errorConvertingHTML = Notification.Name("errorConvertingHTML")
 }

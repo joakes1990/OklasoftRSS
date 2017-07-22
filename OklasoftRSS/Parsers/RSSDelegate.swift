@@ -114,12 +114,11 @@ class RSSDelegate: NSObject, XMLParserDelegate {
         }
         let newStory: baseStory = baseStory(title: storyTitle,
                                             url: storyURL,
-                                            textContent: <#T##String#>,
+                                            textContent: String.getPlainTextFromHTML(html: WSLHTMLEntities.convertHTMLtoString(storyHTML)),
                                             htmlContent: WSLHTMLEntities.convertHTMLtoString(storyHTML),
                                             pubdate: storyDate,
                                             read: false,
                                             feedURL: feedURL,
-                                            imageContent: nil,
                                             author: nil)
         if let storyaudio: [URL] = audioContent {
             let podCast: PodCast = PodCast(story: newStory, audio: storyaudio)
