@@ -7,7 +7,11 @@
 //
 
 import Foundation
-import OklasoftNetworking
+#if os(OSX)
+    import OklasoftNetworking
+#elseif os(iOS)
+    import OklasoftNetworking_iOS_
+#endif
 
 class RSSDelegate: NSObject, XMLParserDelegate {
     
@@ -106,15 +110,15 @@ class RSSDelegate: NSObject, XMLParserDelegate {
     func pushStory() {
         guard let storyURL: URL = url,
             let storyTitle: String = title,
-            let storyHTML: String = htmlContent,
+            let storyHTML: String = htmlContent?.stringByDecodingHTMLEntities,
             let storyDate: Date = pubDate
             else {
                 return
         }
         let newStory: baseStory = baseStory(title: storyTitle,
                                             url: storyURL,
-                                            textContent: String.getPlainTextFromHTML(html: WSLHTMLEntities.convertHTMLtoString(storyHTML)),
-                                            htmlContent: WSLHTMLEntities.convertHTMLtoString(storyHTML),
+                                            textContent: storyHTML.stringByStrippingHTMLTags,
+                                            htmlContent: storyHTML,
                                             pubdate: storyDate,
                                             read: false,
                                             feedURL: feedURL,

@@ -7,33 +7,70 @@
 //
 
 import Foundation
-import OklasoftNetworking
+#if os(OSX)
+    import OklasoftNetworking
+#elseif os(iOS)
+    import OklasoftNetworking_iOS_
+#endif
 
 
 public class Feed {
     let title: String
     let url: URL
-    let favIcon: URL
+    var favIcon: URL?
     var lastUpdated: Date
     let mimeType: mimeTypes
     var stories: [Story]
     
-    init(title: String, url: URL, lastUpdated: Date, mimeType: mimeTypes) {
+    init(title: String, url: URL, lastUpdated: Date, mimeType: mimeTypes, favIcon: URL?) {
         self.title = title
         self.url = url
         self.lastUpdated = lastUpdated
         self.mimeType = mimeType
         self.stories = []
-        
+        self.favIcon = favIcon
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(receaveUpdatedStories(anotification:)),
                                                name: .finishedFindingStories,
                                                object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(receaveUpdatedFavIcon(anotification:)),
+                                               name: .foundFavIcon,
+                                               object: nil)
+        requestUpdatedFavIcon()
         requestUpdatedStories()
     }
     
     func requestUpdatedFavIcon() {
-        
+        guard let hostURL: URL = URL(string:url.host ?? "") else {
+            return
+        }
+        unowned let unownedSelf: Feed = self
+        URLSession.shared.getReturnedDataFrom(url: hostURL) { (data, responce, error) in
+            if let foundError: Error = error {
+                //TODO: Log error.
+                //no need to report a default image is already provided
+                print(foundError)
+                return
+            }
+            guard let validData: Data = data
+            else {
+                //TODO: Log error.
+                //no need to report a default image is already provided
+                print(unrecognizableDataError)
+                return
+            }
+            let parser: XMLParser = XMLParser(data: validData)
+            parser.parseHTMLforFavIcon(fromSite: unownedSelf.url)
+        }
+    }
+    
+    @objc func receaveUpdatedFavIcon(anotification: Notification) {
+        guard let userInfo: [AnyHashable:Any] = anotification.userInfo,
+            let imageLink: URL = userInfo[url] as? URL else {
+                return
+        }
+        favIcon = imageLink
     }
     
     func requestUpdatedStories() {

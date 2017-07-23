@@ -16,6 +16,7 @@ public extension Notification.Name {
     static let finishedReceavingAtomStory = Notification.Name("finishedReceavingRSSAtomData")
     static let finishedReceavingJSONStory = Notification.Name("finishedReceavingRSSJSONFeedData")
     static let feedIdentificationError = Notification.Name("notificationError")
+    static let foundFavIcon = Notification.Name("foundFavIcon")
     static let finishedFindingStories = Notification.Name("finishedFindingStories")
     static let errorFindingStories = Notification.Name("errorFindingStories")
     static let errorConvertingHTML = Notification.Name("errorConvertingHTML")

@@ -21,4 +21,8 @@ public extension XMLParser {
         delegate = atomDelegate
         parse()
     }
+    
+    public func parseHTMLforFavIcon(fromSite url: URL) {
+        
+    }
 }

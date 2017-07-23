@@ -7,7 +7,11 @@
 //
 
 import Foundation
-import OklasoftError
+#if os(OSX)
+    import OklasoftError
+#elseif os(iOS)
+    import OklasoftError_iOS_
+#endif
 
 let couldnotFindUserInfo: oklasoftError = oklasoftError(errorCode: 1015,
                                                         userInfo: nil,

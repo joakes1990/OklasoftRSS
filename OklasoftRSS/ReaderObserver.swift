@@ -7,11 +7,17 @@
 //
 
 import Foundation
-import OklasoftNetworking
+#if os(OSX)
+    import OklasoftNetworking
+#elseif os(iOS)
+    import OklasoftNetworking_iOS_
+#endif
 
-public class StoryConstructor {
+
+public class FeedController {
     
-    static let shared: StoryConstructor = StoryConstructor()
+    static let shared: FeedController = FeedController()
+    var feeds: [Feed] = []
     
     init() {
         NotificationCenter.default.addObserver(self,
@@ -33,10 +39,12 @@ public class StoryConstructor {
     }
     
     @objc func receavedNewFeed(aNotification: Notification) {
-        guard let userInfo: [AnyHashable:Any] = aNotification.userInfo else {
+        guard let userInfo: [AnyHashable:Any] = aNotification.userInfo,
+            let newFeed: Feed = userInfo[feedInfoKey] as? Feed ?? nil
+        else {
             return
         }
-        
+        feeds.append(newFeed)
     }
     
     @objc func receavedNewRSSStory(aNotification: Notification) {

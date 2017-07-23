@@ -7,7 +7,12 @@
 //
 
 import Foundation
-import OklasoftNetworking
+#if os(OSX)
+    import OklasoftNetworking
+#elseif os(iOS)
+    import OklasoftNetworking_iOS_
+#endif
+
 
 public extension URLSession {
     
@@ -34,7 +39,7 @@ public extension URLSession {
                                  url: url,
                                  lastUpdated: Date(),
                                  mimeType: mimeType,
-                                 stories: [])
+                                 favIcon: nil)
         NotificationCenter.default.post(name: .finishedReceavingFeed,
                                         object: nil,
                                         userInfo: [feedInfoKey:newFeed])
