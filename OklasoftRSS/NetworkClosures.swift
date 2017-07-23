@@ -25,7 +25,8 @@ public extension URLSession {
         }
         guard let headers: URLResponse = responce,
             let validData: Data = data,
-            let mimeType: mimeTypes = mimeTypes(rawValue:(headers.mimeType ?? "")),
+            let typeString: String = headers.mimeType,
+            let mimeType: mimeTypes = mimeTypes(rawValue:typeString),
             let title: String = headers.suggestedFilename,
             let url: URL = headers.url
             else {
@@ -35,14 +36,39 @@ public extension URLSession {
                                                 userInfo: [errorInfoKey:error])
                 return
         }
+        
+        func parentURLForRSS() -> URL? {
+            guard let pageXML: String = String(data: validData, encoding: .utf8),
+                let linkRange: Range = pageXML.range(of: "(?<=<link>)(.+)(?=</link>)",
+                                                     options: .regularExpression,
+                                                     range: pageXML.range(of: pageXML),
+                                                     locale: nil)
+                else {
+                    return nil
+            }
+            
+            let linkString: String = pageXML.substring(with: linkRange)
+            return URL(string: linkString)
+        }
+        
+        var canonicalURL: URL? = nil
+        switch mimeType {
+        case .rss, .rssXML, .simpleRSS:
+            canonicalURL = parentURLForRSS()
+            break
+        default:
+            break
+        }
         let newFeed: Feed = Feed(title: title,
                                  url: url,
-                                 lastUpdated: Date(),
+                                 canonicalURL: canonicalURL,
+                                 lastUpdated: nil,
                                  mimeType: mimeType,
                                  favIcon: nil)
         NotificationCenter.default.post(name: .finishedReceavingFeed,
                                         object: nil,
                                         userInfo: [feedInfoKey:newFeed])
+        
     }
     
     static let identifyStoriesCompletion: networkCompletion = {(data, responce, error) in

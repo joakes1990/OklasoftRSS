@@ -17,14 +17,16 @@ import Foundation
 public class Feed {
     let title: String
     let url: URL
+    let canonicalURL: URL?
     var favIcon: URL?
-    var lastUpdated: Date
+    var lastUpdated: Date?
     let mimeType: mimeTypes
     var stories: [Story]
     
-    init(title: String, url: URL, lastUpdated: Date, mimeType: mimeTypes, favIcon: URL?) {
+    init(title: String, url: URL, canonicalURL: URL?, lastUpdated: Date?, mimeType: mimeTypes, favIcon: URL?) {
         self.title = title
         self.url = url
+        self.canonicalURL = canonicalURL
         self.lastUpdated = lastUpdated
         self.mimeType = mimeType
         self.stories = []
@@ -42,11 +44,11 @@ public class Feed {
     }
     
     func requestUpdatedFavIcon() {
-        guard let hostURL: URL = URL(string:url.host ?? "") else {
+        guard let baseURL: URL = canonicalURL else {
             return
         }
         unowned let unownedSelf: Feed = self
-        URLSession.shared.getReturnedDataFrom(url: hostURL) { (data, responce, error) in
+        URLSession.shared.getReturnedDataFrom(url: baseURL) { (data, responce, error) in
             if let foundError: Error = error {
                 //TODO: Log error.
                 //no need to report a default image is already provided
@@ -108,7 +110,7 @@ public class Feed {
         }
         if requester == url {
             // Functional AF
-            stories.insert(contentsOf: newStories.filter({$0.pubdate > lastUpdated}).sorted(by: {$0.pubdate > $1.pubdate}),
+            stories.insert(contentsOf: newStories.filter({$0.pubdate > lastUpdated ?? Date.init(timeIntervalSinceReferenceDate: 0)}).sorted(by: {$0.pubdate > $1.pubdate}),
                            at: 0)
             lastUpdated = Date()
         }
@@ -136,10 +138,6 @@ public struct baseStory: Story {
     public var read: Bool
     public let feedURL: URL
     public let author: String?
-    
-    func extractTextFromHTML(html: String) {
-        
-    }
 }
 
 public struct PodCast: Story {
@@ -175,6 +173,7 @@ public enum mimeTypes: String {
     case atomXML = "application/atom+xml"
     case rss = "application/rss"
     case rssXML = "application/rss+xml"
+    case simpleRSS = "text/xml"
     case json = "application/json"
     case html = "text/html"
     case m4a = "audio/x-m4a"
