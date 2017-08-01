@@ -22,9 +22,9 @@ class OklasoftRSSTests: XCTestCase {
 //    let rssURL = URL(string:"http://inessential.com/xml/rss.xml")!
     
 //Atom test 1
-    let atomURL: URL = URL(string:"https://daringfireball.net/feeds/main")!
+//    let atomURL: URL = URL(string:"https://daringfireball.net/feeds/main")!
 //Atom test 2
-//    let atomURL: URL = URL(string: "http://blog.atom.io/feed.xml")!
+    let atomURL: URL = URL(string: "http://blog.atom.io/feed.xml")!
     
     override func setUp() {
         super.setUp()
@@ -59,7 +59,8 @@ class OklasoftRSSTests: XCTestCase {
     func testAtomIdent() {
         URLSession.shared.getReturnedDataFrom(url: atomURL, with: URLSession.identifyFeedsCompletion)
         let expectation: XCTNSNotificationExpectation = XCTNSNotificationExpectation(name: .finishedReceavingFeed)
-        self.wait(for: [expectation], timeout: 10)
+        let favIconExpect: XCTNSNotificationExpectation = XCTNSNotificationExpectation(name: .foundFavIcon)
+        self.wait(for: [expectation, favIconExpect], timeout: 10)
     }
     
     @objc func testReceaveFeed(aNotification: Notification) {
@@ -71,7 +72,7 @@ class OklasoftRSSTests: XCTestCase {
         }
         testFeeds.append(newFeed)
         XCTAssertNotNil(testFeeds[0])
-        XCTAssertGreaterThan(testFeeds.count, 0)
+        XCTAssertGreaterThan(testFeeds.count, 0, "Feed was returned but not appended to test feeds array")
     }
     
     @objc func testFavIcon(aNotification: Notification) {
@@ -92,7 +93,7 @@ class OklasoftRSSTests: XCTestCase {
                 XCTFail()
                 return
         }
-        XCTAssertGreaterThan(stories.count, 1)
+        XCTAssertGreaterThan(stories.count, 1, "Notification for new stories called but array was empty")
     }
     
 }

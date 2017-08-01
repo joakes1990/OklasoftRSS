@@ -44,7 +44,7 @@ public class Feed {
     }
     
     func requestUpdatedFavIcon() {
-        guard let baseURL: URL = canonicalURL else {
+        guard let baseURL: URL = canonicalURL != nil ? canonicalURL : URL(string:"http://\(url.host ?? "")") else {
             return
         }
         unowned let unownedSelf: Feed = self
