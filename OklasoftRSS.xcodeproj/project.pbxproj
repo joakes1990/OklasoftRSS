@@ -168,8 +168,8 @@
 			isa = PBXGroup;
 			children = (
 				D06810F61F23D2BC0093EF1C /* HTMLEntityMap.swift */,
-				D0AB26011F2259AF00E95075 /* XMLParser.swift */,
 				D0333CF71F22A25F008D1446 /* StringExtensionHTML.swift */,
+				D0AB26011F2259AF00E95075 /* XMLParser.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";

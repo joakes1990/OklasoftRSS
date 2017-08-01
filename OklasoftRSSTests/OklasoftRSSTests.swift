@@ -21,6 +21,11 @@ class OklasoftRSSTests: XCTestCase {
 //RSS test 2
 //    let rssURL = URL(string:"http://inessential.com/xml/rss.xml")!
     
+//Atom test 1
+    let atomURL: URL = URL(string:"https://daringfireball.net/feeds/main")!
+//Atom test 2
+//    let atomURL: URL = URL(string: "http://blog.atom.io/feed.xml")!
+    
     override func setUp() {
         super.setUp()
         NotificationCenter.default.addObserver(self,
@@ -49,6 +54,12 @@ class OklasoftRSSTests: XCTestCase {
         let favIconExpect: XCTNSNotificationExpectation = XCTNSNotificationExpectation(name: .foundFavIcon)
         let storiesExpect:XCTNSNotificationExpectation = XCTNSNotificationExpectation(name: .finishedFindingStories)
         self.wait(for: [expectation, favIconExpect, storiesExpect], timeout: 10)
+    }
+    
+    func testAtomIdent() {
+        URLSession.shared.getReturnedDataFrom(url: atomURL, with: URLSession.identifyFeedsCompletion)
+        let expectation: XCTNSNotificationExpectation = XCTNSNotificationExpectation(name: .finishedReceavingFeed)
+        self.wait(for: [expectation], timeout: 10)
     }
     
     @objc func testReceaveFeed(aNotification: Notification) {

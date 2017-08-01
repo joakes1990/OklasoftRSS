@@ -27,8 +27,8 @@ public extension URLSession {
             let validData: Data = data,
             let typeString: String = headers.mimeType,
             let mimeType: mimeTypes = mimeTypes(rawValue:typeString),
-            let title: String = headers.suggestedFilename,
-            let url: URL = headers.url
+            let url: URL = headers.url,
+            let title: String = url.host
             else {
                 let error: Error = unrecognizableDataError
                 NotificationCenter.default.post(name: .feedIdentificationError,
