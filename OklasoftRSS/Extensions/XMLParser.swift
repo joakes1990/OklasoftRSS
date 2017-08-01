@@ -12,6 +12,7 @@ public extension XMLParser {
     
     public func parseRSSFeed(fromParent url: URL) {
         let rssDelegate: RSSDelegate = RSSDelegate(with: url)
+        externalEntityResolvingPolicy = .never
         delegate = rssDelegate
         parse()
     }
@@ -23,6 +24,9 @@ public extension XMLParser {
     }
     
     public func parseHTMLforFavIcon(fromSite url: URL) {
-        
+        let favIconDelegate: FavIconDelegate = FavIconDelegate(with: url)
+        delegate = favIconDelegate
+        parse()
     }
+    
 }

@@ -22,20 +22,21 @@ class FavIconDelegate: NSObject, XMLParserDelegate {
     
     init(with url: URL) {
         self.url = url
+        self.foundIcon = nil
         super.init()
     }
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
-        if parsingHead {
-            guard let element: parsingElements = parsingElements(rawValue: elementName) else {
-                return
-            }
-            
-            switch element {
-            case .head:
-                parsingHead = true
-                break
-            case .link:
+        
+        guard let element: parsingElements = parsingElements(rawValue: elementName) else {
+            return
+        }
+        switch element {
+        case .head:
+            parsingHead = true
+            break
+        case .link:
+            if parsingHead {
                 guard let linkType: supportedLinkTypes = supportedLinkTypes(rawValue:attributeDict["rel"] ?? ""),
                     let link: String = attributeDict["href"],
                     let imageLink: URL = URL(string: link, relativeTo: url)
@@ -47,13 +48,20 @@ class FavIconDelegate: NSObject, XMLParserDelegate {
                     foundIcon = Icon(imageLink: imageLink, imageType: linkType)
                 }
             }
+            break
         }
     }
     
     func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
-        NotificationCenter.default.post(name: .errorFindingStories,
-                                        object: nil,
-                                        userInfo: [errorInfoKey:parseError])
+        if let link: URL = foundIcon?.imageLink {
+            NotificationCenter.default.post(name: .foundFavIcon,
+                                            object: nil,
+                                            userInfo: [url:link])
+        } else {
+            NotificationCenter.default.post(name: .errorFindingStories,
+                                            object: nil,
+                                            userInfo: [errorInfoKey:parseError])
+        }
     }
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {

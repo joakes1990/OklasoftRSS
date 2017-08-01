@@ -92,7 +92,7 @@ public class Feed {
             case .atom, .atomXML:
                 parser.parseAtomFeed(fromParent: unownedSelf.url)
                 break
-            case .rss, .rssXML:
+            case .rss, .rssXML, .simpleRSS:
                 parser.parseRSSFeed(fromParent: unownedSelf.url)
                 break
             default:

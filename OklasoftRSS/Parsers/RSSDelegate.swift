@@ -33,16 +33,32 @@ class RSSDelegate: NSObject, XMLParserDelegate {
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         if let rssProperty: parseValues = parseValues(rawValue: elementName) {
-            if rssProperty == .enclosure, let _: mimeTypes = mimeTypes(rawValue: attributeDict["type"] ?? ""),
-            let audioLocation: String = attributeDict["url"] {
-                guard let audioURL: URL = URL(string: audioLocation) else {
-                    return
+            switch rssProperty {
+            case .enclosure:
+                if let _: mimeTypes = mimeTypes(rawValue: attributeDict["type"] ?? ""),
+                    let audioLocation: String = attributeDict["url"],
+                    let audioURL: URL = URL(string: audioLocation) {
+                    guard var podcasrURLs: [URL] = audioContent else {
+                        audioContent = [audioURL]
+                        break
+                    }
+                    podcasrURLs.append(audioURL)
                 }
-                audioContent == nil ? audioContent = [audioURL] : audioContent?.append(audioURL)
+                break
+            case .item:
+                url = nil
+                title = nil
+                htmlContent = nil
+                audioContent = nil
+                pubDate = nil
+                break
+            default:
+                break
             }
             element = rssProperty
         }
     }
+    
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         guard let hasElement: parseValues = element else {
@@ -50,7 +66,11 @@ class RSSDelegate: NSObject, XMLParserDelegate {
         }
         switch hasElement {
         case .title:
-            title = title == nil ? string : "\(String(describing: title))\((string))"
+            guard let prefix: String = title else {
+                title = string
+                break
+            }
+            title = "\(prefix)\(string)"
             break
         case .link:
             guard let itemURL = URL(string: string) else {
@@ -59,7 +79,11 @@ class RSSDelegate: NSObject, XMLParserDelegate {
             url = itemURL
             break
         case .description:
-            htmlContent = htmlContent == nil ? string : "\(String(describing: htmlContent))\(string)"
+            guard let prefix: String = htmlContent else {
+                htmlContent = string
+                break
+            }
+            htmlContent = "\(prefix)\(string)"
             break
         case .pubDate:
             pubDate = rfc822DateFromString(string: string)
@@ -74,11 +98,6 @@ class RSSDelegate: NSObject, XMLParserDelegate {
             switch rssProperty {
             case .item:
                 pushStory()
-                url = nil
-                title = nil
-                htmlContent = nil
-                audioContent = nil
-                pubDate = nil
                 break
             default:
                 element = nil
@@ -100,14 +119,23 @@ class RSSDelegate: NSObject, XMLParserDelegate {
     }
     
     func rfc822DateFromString(string: String) -> Date? {
-        let RFC822Date: String = "ddd, dd MMM yyyy HH:mm:ssZZZZZ"
+        let RFC822Date1: String = "EEE, dd MMM yyyy HH:mm:ss zzz"
+        let RFC822Date2: String = "EEE, dd MMM yyyy HH:mm:ss Z"
         let dateFormater: DateFormatter = DateFormatter()
-        dateFormater.dateFormat = RFC822Date
         
-        return dateFormater.date(from: string)
+        dateFormater.dateFormat = RFC822Date1
+        
+        if let validDate: Date = dateFormater.date(from: string) {
+            return validDate
+        } else {
+            dateFormater.dateFormat = RFC822Date2
+            return dateFormater.date(from: string)
+        }
     }
     
     func pushStory() {
+        
+        
         guard let storyURL: URL = url,
             let storyTitle: String = title,
             let storyHTML: String = htmlContent?.stringByDecodingHTMLEntities,
