@@ -109,7 +109,6 @@ public class Feed {
                 return
         }
         if requester == url {
-            // Functional AF
             stories.insert(contentsOf: newStories.filter({$0.pubdate > lastUpdated ?? Date.init(timeIntervalSinceReferenceDate: 0)}).sorted(by: {$0.pubdate > $1.pubdate}),
                            at: 0)
             lastUpdated = Date()
@@ -152,8 +151,9 @@ public struct PodCast: Story {
     public let author: String?
     
     let audioContent: [URL]
+    let image: URL
     
-    init(story: Story, audio: [URL]) {
+    init(story: Story, audio: [URL], image: URL) {
         self.title = story.title
         self.url = story.url
         self.textContent = story.textContent
@@ -163,6 +163,8 @@ public struct PodCast: Story {
         self.feedURL = story.feedURL
         self.author = story.author
         self.audioContent = audio
+        self.image = image
+        
     }
 }
 
@@ -176,11 +178,15 @@ public enum mimeTypes: String {
     case simpleRSS = "text/xml"
     case json = "application/json"
     case html = "text/html"
+}
+
+public enum mediaMimeTypes: String {
+    public typealias rawValue = String
+    
     case m4a = "audio/x-m4a"
     case mpegA = "audio/mpeg"
     case mpeg3 = "audio/mpeg3"
     case xmpeg3 = "audio/x-mpeg-3"
     case aac = "audio/aac"
     case mp4A = "audio/mp4"
-    
 }

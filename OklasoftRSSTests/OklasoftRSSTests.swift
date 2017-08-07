@@ -26,6 +26,11 @@ class OklasoftRSSTests: XCTestCase {
 //Atom test 2
 //    let atomURL: URL = URL(string: "http://blog.atom.io/feed.xml")!
     
+// Podcast test 1
+//    let audioPodcastTest: URL = URL(string: "http://atp.fm/episodes?format=rss")!
+// Podcast test 2
+    let audioPodcastTest: URL = URL(string: "http://feeds.feedburner.com/PhoneDifferentPodcast")!
+    
     override func setUp() {
         super.setUp()
         NotificationCenter.default.addObserver(self,
@@ -56,12 +61,21 @@ class OklasoftRSSTests: XCTestCase {
         self.wait(for: [expectation, favIconExpect, storiesExpect], timeout: 10)
     }
     
+    // Atom Testing
     func testAtomIdent() {
         URLSession.shared.getReturnedDataFrom(url: atomURL, with: URLSession.identifyFeedsCompletion)
         let expectation: XCTNSNotificationExpectation = XCTNSNotificationExpectation(name: .finishedReceavingFeed)
         let favIconExpect: XCTNSNotificationExpectation = XCTNSNotificationExpectation(name: .foundFavIcon)
         let storiesExpect:XCTNSNotificationExpectation = XCTNSNotificationExpectation(name: .finishedFindingStories)
         self.wait(for: [expectation, favIconExpect, storiesExpect], timeout: 10)
+    }
+    
+    // RSS Podcast Testing
+    func testPodcastIdent() {
+        URLSession.shared.getReturnedDataFrom(url: audioPodcastTest, with: URLSession.identifyFeedsCompletion)
+        let expectation: XCTNSNotificationExpectation = XCTNSNotificationExpectation(name: .finishedReceavingFeed)
+        let storiesExpect:XCTNSNotificationExpectation = XCTNSNotificationExpectation(name: .finishedFindingStories)
+        self.wait(for: [expectation, storiesExpect], timeout: 10)
     }
     
     @objc func testReceaveFeed(aNotification: Notification) {

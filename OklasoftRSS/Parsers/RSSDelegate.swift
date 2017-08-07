@@ -24,6 +24,7 @@ class RSSDelegate: NSObject, XMLParserDelegate {
     var htmlContent: String?
     var audioContent: [URL]?
     var pubDate: Date?
+    var image: URL?
     
     init(with url: URL) {
         self.feedURL = url
@@ -35,7 +36,7 @@ class RSSDelegate: NSObject, XMLParserDelegate {
         if let rssProperty: parseValues = parseValues(rawValue: elementName) {
             switch rssProperty {
             case .enclosure:
-                if let _: mimeTypes = mimeTypes(rawValue: attributeDict["type"] ?? ""),
+                if let _: mediaMimeTypes = mediaMimeTypes(rawValue: attributeDict["type"] ?? ""),
                     let audioLocation: String = attributeDict["url"],
                     let audioURL: URL = URL(string: audioLocation) {
                     guard var podcasrURLs: [URL] = audioContent else {
@@ -51,6 +52,13 @@ class RSSDelegate: NSObject, XMLParserDelegate {
                 htmlContent = nil
                 audioContent = nil
                 pubDate = nil
+                break
+            case .podcastImage:
+                guard let imageLink: String = attributeDict["href"],
+                    let imageURL: URL = URL(string: imageLink) else {
+                    break
+                }
+                image = imageURL
                 break
             default:
                 break
@@ -151,8 +159,9 @@ class RSSDelegate: NSObject, XMLParserDelegate {
                                             read: false,
                                             feedURL: feedURL,
                                             author: nil)
-        if let storyaudio: [URL] = audioContent {
-            let podCast: PodCast = PodCast(story: newStory, audio: storyaudio)
+        if let storyaudio: [URL] = audioContent,
+            let storyImage: URL = image {
+            let podCast: PodCast = PodCast(story: newStory, audio: storyaudio, image: storyImage)
             stories.append(podCast)
         } else {
             stories.append(newStory)
@@ -169,6 +178,7 @@ class RSSDelegate: NSObject, XMLParserDelegate {
         case description = "description"
         case pubDate = "pubDate"
         case enclosure = "enclosure"
+        case podcastImage = "itunes:image"
         
     }
 }
