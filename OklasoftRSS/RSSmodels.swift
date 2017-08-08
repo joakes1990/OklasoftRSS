@@ -176,7 +176,6 @@ public enum mimeTypes: String {
     case rss = "application/rss"
     case rssXML = "application/rss+xml"
     case simpleRSS = "text/xml"
-    case json = "application/json"
     case html = "text/html"
 }
 

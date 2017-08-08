@@ -30,6 +30,9 @@ class OklasoftRSSTests: XCTestCase {
 //    let audioPodcastTest: URL = URL(string: "http://atp.fm/episodes?format=rss")!
 // Podcast test 2
     let audioPodcastTest: URL = URL(string: "http://feeds.feedburner.com/PhoneDifferentPodcast")!
+
+// HTML test1
+    let htmlURL: URL = URL(string: "http://www.npr.org")!
     
     override func setUp() {
         super.setUp()
@@ -78,6 +81,11 @@ class OklasoftRSSTests: XCTestCase {
         self.wait(for: [expectation, storiesExpect], timeout: 10)
     }
     
+    func testHTML() {
+        URLSession.shared.getReturnedDataFrom(url: htmlURL, with: URLSession.findFeedsCompletion)
+        let expectation: XCTNSNotificationExpectation = XCTNSNotificationExpectation(name: .foundFeedURLs)
+        self.wait(for: [expectation], timeout: 10)
+    }
     @objc func testReceaveFeed(aNotification: Notification) {
         guard let userInfo: [AnyHashable:Any] = aNotification.userInfo,
             let newFeed: Feed = userInfo[feedInfoKey] as? Feed

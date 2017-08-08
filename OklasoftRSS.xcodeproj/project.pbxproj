@@ -13,6 +13,7 @@
 		D05D3B641F11B6310020627D /* RSSmodels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D3B631F11B6310020627D /* RSSmodels.swift */; };
 		D06810F71F23D2BC0093EF1C /* HTMLEntityMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06810F61F23D2BC0093EF1C /* HTMLEntityMap.swift */; };
 		D06B221E1F1C536F00027279 /* AtomDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06B221D1F1C536F00027279 /* AtomDelegate.swift */; };
+		D0792D031F3A4129008F182D /* HTMLDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0792D021F3A4129008F182D /* HTMLDelegate.swift */; };
 		D07D70041F23F0EA00FE25C1 /* Placeholders.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D07D70031F23F0EA00FE25C1 /* Placeholders.xcassets */; };
 		D07D70061F24040200FE25C1 /* FavIconDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07D70051F24040200FE25C1 /* FavIconDelegate.swift */; };
 		D07D70151F2418A800FE25C1 /* OklasoftRSS_iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07D700C1F2418A800FE25C1 /* OklasoftRSS_iOS_.framework */; };
@@ -107,6 +108,7 @@
 		D05D3B631F11B6310020627D /* RSSmodels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSmodels.swift; sourceTree = "<group>"; };
 		D06810F61F23D2BC0093EF1C /* HTMLEntityMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLEntityMap.swift; sourceTree = "<group>"; };
 		D06B221D1F1C536F00027279 /* AtomDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomDelegate.swift; sourceTree = "<group>"; };
+		D0792D021F3A4129008F182D /* HTMLDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLDelegate.swift; sourceTree = "<group>"; };
 		D07D70031F23F0EA00FE25C1 /* Placeholders.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Placeholders.xcassets; sourceTree = "<group>"; };
 		D07D70051F24040200FE25C1 /* FavIconDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavIconDelegate.swift; sourceTree = "<group>"; };
 		D07D700C1F2418A800FE25C1 /* OklasoftRSS_iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OklasoftRSS_iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -255,6 +257,7 @@
 				D0CBAF8F1F19CF080025B819 /* RSSDelegate.swift */,
 				D06B221D1F1C536F00027279 /* AtomDelegate.swift */,
 				D07D70051F24040200FE25C1 /* FavIconDelegate.swift */,
+				D0792D021F3A4129008F182D /* HTMLDelegate.swift */,
 			);
 			path = Parsers;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				D06810F71F23D2BC0093EF1C /* HTMLEntityMap.swift in Sources */,
 				D07D70061F24040200FE25C1 /* FavIconDelegate.swift in Sources */,
 				D09CB6E61F098A9800E28DF8 /* Notifications.swift in Sources */,
+				D0792D031F3A4129008F182D /* HTMLDelegate.swift in Sources */,
 				D0CBAF901F19CF080025B819 /* RSSDelegate.swift in Sources */,
 				D05D3B641F11B6310020627D /* RSSmodels.swift in Sources */,
 				D05D3B361F0DE92B0020627D /* Errors.swift in Sources */,

@@ -24,18 +24,18 @@ public class FeedController {
                                                selector: #selector(receavedNewFeed(aNotification:)),
                                                name: .finishedReceavingFeed,
                                                object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(receavedNewRSSStory(aNotification:)),
-                                               name: .finishedReceavingRSSStory,
-                                               object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(receavedNewAtomStory(aNotification:)),
-                                               name: .finishedReceavingAtomStory,
-                                               object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(receavedNewJSONStory(aNotification:)),
-                                               name: .finishedReceavingJSONStory,
-                                               object: nil)
+//        NotificationCenter.default.addObserver(self,
+//                                               selector: #selector(receavedNewRSSStory(aNotification:)),
+//                                               name: .finishedReceavingRSSStory,
+//                                               object: nil)
+//        NotificationCenter.default.addObserver(self,
+//                                               selector: #selector(receavedNewAtomStory(aNotification:)),
+//                                               name: .finishedReceavingAtomStory,
+//                                               object: nil)
+//        NotificationCenter.default.addObserver(self,
+//                                               selector: #selector(receavedNewJSONStory(aNotification:)),
+//                                               name: .finishedReceavingJSONStory,
+//                                               object: nil)
     }
     
     @objc func receavedNewFeed(aNotification: Notification) {

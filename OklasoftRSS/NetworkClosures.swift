@@ -100,4 +100,27 @@ public extension URLSession {
         }
     }
     
+    static let findFeedsCompletion: networkCompletion = {(data, responce, error) in
+        if let foundError:Error = error {
+            NotificationCenter.default.post(name: .networkingErrorNotification,
+                                            object: nil,
+                                            userInfo:errorInfo(error: foundError).toDict())
+            return
+        }
+        guard let headers: URLResponse = responce,
+            let validData: Data = data,
+            let mimeType: mimeTypes = mimeTypes(rawValue:(headers.mimeType ?? "")),
+            let url: URL = headers.url
+            else {
+                return
+        }
+        switch mimeType {
+        case .html:
+            let parser: XMLParser = XMLParser(data: validData)
+            parser.parseHTMLforFeeds(fromSite: url)
+            break
+        default:
+            break
+        }
+    }
 }
