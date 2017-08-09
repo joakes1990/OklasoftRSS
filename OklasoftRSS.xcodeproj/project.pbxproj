@@ -29,7 +29,6 @@
 		D07D702B1F2419B500FE25C1 /* FavIconDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07D70051F24040200FE25C1 /* FavIconDelegate.swift */; };
 		D07D702C1F2419B500FE25C1 /* RSSmodels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D3B631F11B6310020627D /* RSSmodels.swift */; };
 		D07D702D1F2419B500FE25C1 /* NetworkClosures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D3B591F0F23EB0020627D /* NetworkClosures.swift */; };
-		D07D702E1F2419B500FE25C1 /* ReaderObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D088D3D61F0865380048B95A /* ReaderObserver.swift */; };
 		D07D702F1F2419B500FE25C1 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09CB6E51F098A9800E28DF8 /* Notifications.swift */; };
 		D07D70301F2419B500FE25C1 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D3B351F0DE92B0020627D /* Errors.swift */; };
 		D07D70311F2419FA00FE25C1 /* Placeholders.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D07D70031F23F0EA00FE25C1 /* Placeholders.xcassets */; };
@@ -37,7 +36,6 @@
 		D088D3BB1F0861E20048B95A /* OklasoftRSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D088D3B11F0861E20048B95A /* OklasoftRSS.framework */; };
 		D088D3C01F0861E20048B95A /* OklasoftRSSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D088D3BF1F0861E20048B95A /* OklasoftRSSTests.swift */; };
 		D088D3C21F0861E20048B95A /* OklasoftRSS.h in Headers */ = {isa = PBXBuildFile; fileRef = D088D3B41F0861E20048B95A /* OklasoftRSS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D088D3D71F0865380048B95A /* ReaderObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D088D3D61F0865380048B95A /* ReaderObserver.swift */; };
 		D09CB6E61F098A9800E28DF8 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09CB6E51F098A9800E28DF8 /* Notifications.swift */; };
 		D0AB26021F2259AF00E95075 /* XMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB26011F2259AF00E95075 /* XMLParser.swift */; };
 		D0CBAF901F19CF080025B819 /* RSSDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CBAF8F1F19CF080025B819 /* RSSDelegate.swift */; };
@@ -127,7 +125,6 @@
 		D088D3BA1F0861E20048B95A /* OklasoftRSSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OklasoftRSSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D088D3BF1F0861E20048B95A /* OklasoftRSSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OklasoftRSSTests.swift; sourceTree = "<group>"; };
 		D088D3C11F0861E20048B95A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D088D3D61F0865380048B95A /* ReaderObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderObserver.swift; sourceTree = "<group>"; };
 		D09CB6E51F098A9800E28DF8 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		D0AB26011F2259AF00E95075 /* XMLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLParser.swift; sourceTree = "<group>"; };
 		D0CBAF8F1F19CF080025B819 /* RSSDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSDelegate.swift; sourceTree = "<group>"; };
@@ -231,7 +228,6 @@
 				D088D3B41F0861E20048B95A /* OklasoftRSS.h */,
 				D05D3B631F11B6310020627D /* RSSmodels.swift */,
 				D05D3B591F0F23EB0020627D /* NetworkClosures.swift */,
-				D088D3D61F0865380048B95A /* ReaderObserver.swift */,
 				D09CB6E51F098A9800E28DF8 /* Notifications.swift */,
 				D088D3B51F0861E20048B95A /* Info.plist */,
 				D05D3B351F0DE92B0020627D /* Errors.swift */,
@@ -505,7 +501,6 @@
 				D07D702B1F2419B500FE25C1 /* FavIconDelegate.swift in Sources */,
 				D07D702C1F2419B500FE25C1 /* RSSmodels.swift in Sources */,
 				D07D702D1F2419B500FE25C1 /* NetworkClosures.swift in Sources */,
-				D07D702E1F2419B500FE25C1 /* ReaderObserver.swift in Sources */,
 				D07D702F1F2419B500FE25C1 /* Notifications.swift in Sources */,
 				D07D70301F2419B500FE25C1 /* Errors.swift in Sources */,
 			);
@@ -534,7 +529,6 @@
 				D05D3B361F0DE92B0020627D /* Errors.swift in Sources */,
 				D05D3B5A1F0F23EB0020627D /* NetworkClosures.swift in Sources */,
 				D06B221E1F1C536F00027279 /* AtomDelegate.swift in Sources */,
-				D088D3D71F0865380048B95A /* ReaderObserver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
