@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D0333CF81F22A25F008D1446 /* StringExtensionHTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0333CF71F22A25F008D1446 /* StringExtensionHTML.swift */; };
+		D058AFF41F3B74E500EAC5EB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D058AFF11F3B74E500EAC5EB /* WebKit.framework */; };
+		D058AFF61F3B74F200EAC5EB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D058AFF51F3B74F200EAC5EB /* WebKit.framework */; };
 		D05D3B361F0DE92B0020627D /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D3B351F0DE92B0020627D /* Errors.swift */; };
 		D05D3B5A1F0F23EB0020627D /* NetworkClosures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D3B591F0F23EB0020627D /* NetworkClosures.swift */; };
 		D05D3B641F11B6310020627D /* RSSmodels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D3B631F11B6310020627D /* RSSmodels.swift */; };
@@ -103,6 +105,8 @@
 
 /* Begin PBXFileReference section */
 		D0333CF71F22A25F008D1446 /* StringExtensionHTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionHTML.swift; sourceTree = "<group>"; };
+		D058AFF11F3B74E500EAC5EB /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		D058AFF51F3B74F200EAC5EB /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.0.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
 		D05D3B351F0DE92B0020627D /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		D05D3B591F0F23EB0020627D /* NetworkClosures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClosures.swift; sourceTree = "<group>"; };
 		D05D3B631F11B6310020627D /* RSSmodels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSmodels.swift; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D058AFF61F3B74F200EAC5EB /* WebKit.framework in Frameworks */,
 				D07D707C1F242E9E00FE25C1 /* OklasoftNetworking_iOS_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,6 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D058AFF41F3B74E500EAC5EB /* WebKit.framework in Frameworks */,
 				D0FCF85E1F23A5720004EF02 /* OklasoftNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,6 +252,8 @@
 		D088D3CB1F0863E40048B95A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D058AFF11F3B74E500EAC5EB /* WebKit.framework */,
+				D058AFF51F3B74F200EAC5EB /* WebKit.framework */,
 				D0FCF84D1F23A5570004EF02 /* OklasoftNetworking.xcodeproj */,
 			);
 			name = Frameworks;

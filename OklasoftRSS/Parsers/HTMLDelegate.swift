@@ -25,6 +25,10 @@ class HTMLDelegate: NSObject, XMLParserDelegate {
         super.init()
     }
     
+    func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
+        print("Oh crap an error")
+    }
+    
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         guard let element: parsingElements = parsingElements(rawValue: elementName) else {
             return

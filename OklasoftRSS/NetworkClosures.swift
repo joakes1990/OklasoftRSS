@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import WebKit
 #if os(OSX)
     import OklasoftNetworking
 #elseif os(iOS)
@@ -86,15 +87,15 @@ public extension URLSession {
                 return
         }
         switch mimeType {
-            case .rss, .rssXML:
-                let parser: XMLParser = XMLParser(data: validData)
-                parser.parseRSSFeed(fromParent: url)
-                break
-            case .atom, .atomXML:
-                let parser: XMLParser = XMLParser(data: validData)
-                parser.parseAtomFeed(fromParent: url)
-                break
-            //TODO: add other types
+        case .rss, .rssXML:
+            let parser: XMLParser = XMLParser(data: validData)
+            parser.parseRSSFeed(fromParent: url)
+            break
+        case .atom, .atomXML:
+            let parser: XMLParser = XMLParser(data: validData)
+            parser.parseAtomFeed(fromParent: url)
+            break
+        //TODO: add other types
         default:
             break
         }
@@ -116,8 +117,22 @@ public extension URLSession {
         }
         switch mimeType {
         case .html:
-            let parser: XMLParser = XMLParser(data: validData)
+            guard let htmlString: String = String(data: validData, encoding: .utf8) else {
+                NotificationCenter.default.post(name: .errorConvertingHTML,
+                                                object: nil,
+                                                userInfo: [errorInfoKey:unrecognizableDataError])
+                return
+            }
+            do {
+            let document: XMLDocument = try XMLDocument(xmlString: htmlString, options: .documentTidyHTML)
+            let parser: XMLParser = XMLParser(data: document.xmlData)
             parser.parseHTMLforFeeds(fromSite: url)
+            } catch {
+                NotificationCenter.default.post(name: .errorConvertingHTML,
+                                                object: nil,
+                                                userInfo: [errorInfoKey:unrecognizableDataError])
+                return
+            }
             break
         default:
             break

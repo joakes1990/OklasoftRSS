@@ -86,6 +86,7 @@ class OklasoftRSSTests: XCTestCase {
         let expectation: XCTNSNotificationExpectation = XCTNSNotificationExpectation(name: .foundFeedURLs)
         self.wait(for: [expectation], timeout: 10)
     }
+    
     @objc func testReceaveFeed(aNotification: Notification) {
         guard let userInfo: [AnyHashable:Any] = aNotification.userInfo,
             let newFeed: Feed = userInfo[feedInfoKey] as? Feed
