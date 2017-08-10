@@ -95,7 +95,6 @@ public extension URLSession {
             let parser: XMLParser = XMLParser(data: validData)
             parser.parseAtomFeed(fromParent: url)
             break
-        //TODO: add other types
         default:
             break
         }
