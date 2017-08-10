@@ -8,15 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		D0333CF81F22A25F008D1446 /* StringExtensionHTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0333CF71F22A25F008D1446 /* StringExtensionHTML.swift */; };
-		D058AFF41F3B74E500EAC5EB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D058AFF11F3B74E500EAC5EB /* WebKit.framework */; };
-		D058AFF61F3B74F200EAC5EB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D058AFF51F3B74F200EAC5EB /* WebKit.framework */; };
 		D05D3B361F0DE92B0020627D /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D3B351F0DE92B0020627D /* Errors.swift */; };
 		D05D3B5A1F0F23EB0020627D /* NetworkClosures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D3B591F0F23EB0020627D /* NetworkClosures.swift */; };
 		D05D3B641F11B6310020627D /* RSSmodels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D3B631F11B6310020627D /* RSSmodels.swift */; };
 		D06810F71F23D2BC0093EF1C /* HTMLEntityMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06810F61F23D2BC0093EF1C /* HTMLEntityMap.swift */; };
 		D06B221E1F1C536F00027279 /* AtomDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06B221D1F1C536F00027279 /* AtomDelegate.swift */; };
 		D0792D031F3A4129008F182D /* HTMLDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0792D021F3A4129008F182D /* HTMLDelegate.swift */; };
-		D07D70041F23F0EA00FE25C1 /* Placeholders.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D07D70031F23F0EA00FE25C1 /* Placeholders.xcassets */; };
 		D07D70061F24040200FE25C1 /* FavIconDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07D70051F24040200FE25C1 /* FavIconDelegate.swift */; };
 		D07D70151F2418A800FE25C1 /* OklasoftRSS_iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07D700C1F2418A800FE25C1 /* OklasoftRSS_iOS_.framework */; };
 		D07D701A1F2418A800FE25C1 /* OklasoftRSS_iOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07D70191F2418A800FE25C1 /* OklasoftRSS_iOS_Tests.swift */; };
@@ -31,7 +28,6 @@
 		D07D702D1F2419B500FE25C1 /* NetworkClosures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D3B591F0F23EB0020627D /* NetworkClosures.swift */; };
 		D07D702F1F2419B500FE25C1 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09CB6E51F098A9800E28DF8 /* Notifications.swift */; };
 		D07D70301F2419B500FE25C1 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D3B351F0DE92B0020627D /* Errors.swift */; };
-		D07D70311F2419FA00FE25C1 /* Placeholders.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D07D70031F23F0EA00FE25C1 /* Placeholders.xcassets */; };
 		D07D707C1F242E9E00FE25C1 /* OklasoftNetworking_iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07D70761F242DFA00FE25C1 /* OklasoftNetworking_iOS_.framework */; };
 		D088D3BB1F0861E20048B95A /* OklasoftRSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D088D3B11F0861E20048B95A /* OklasoftRSS.framework */; };
 		D088D3C01F0861E20048B95A /* OklasoftRSSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D088D3BF1F0861E20048B95A /* OklasoftRSSTests.swift */; };
@@ -111,7 +107,6 @@
 		D06810F61F23D2BC0093EF1C /* HTMLEntityMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLEntityMap.swift; sourceTree = "<group>"; };
 		D06B221D1F1C536F00027279 /* AtomDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomDelegate.swift; sourceTree = "<group>"; };
 		D0792D021F3A4129008F182D /* HTMLDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLDelegate.swift; sourceTree = "<group>"; };
-		D07D70031F23F0EA00FE25C1 /* Placeholders.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Placeholders.xcassets; sourceTree = "<group>"; };
 		D07D70051F24040200FE25C1 /* FavIconDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavIconDelegate.swift; sourceTree = "<group>"; };
 		D07D700C1F2418A800FE25C1 /* OklasoftRSS_iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OklasoftRSS_iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D07D700E1F2418A800FE25C1 /* OklasoftRSS_iOS_.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OklasoftRSS_iOS_.h; sourceTree = "<group>"; };
@@ -136,7 +131,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D058AFF61F3B74F200EAC5EB /* WebKit.framework in Frameworks */,
 				D07D707C1F242E9E00FE25C1 /* OklasoftNetworking_iOS_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,7 +147,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D058AFF41F3B74E500EAC5EB /* WebKit.framework in Frameworks */,
 				D0FCF85E1F23A5720004EF02 /* OklasoftNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,7 +224,6 @@
 				D09CB6E51F098A9800E28DF8 /* Notifications.swift */,
 				D088D3B51F0861E20048B95A /* Info.plist */,
 				D05D3B351F0DE92B0020627D /* Errors.swift */,
-				D07D70031F23F0EA00FE25C1 /* Placeholders.xcassets */,
 			);
 			path = OklasoftRSS;
 			sourceTree = "<group>";
@@ -460,7 +452,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D07D70311F2419FA00FE25C1 /* Placeholders.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,7 +466,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D07D70041F23F0EA00FE25C1 /* Placeholders.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

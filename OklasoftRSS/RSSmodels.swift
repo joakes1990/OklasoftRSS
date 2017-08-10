@@ -50,20 +50,29 @@ public class Feed {
         unowned let unownedSelf: Feed = self
         URLSession.shared.getReturnedDataFrom(url: baseURL) { (data, responce, error) in
             if let foundError: Error = error {
-                //TODO: Log error.
-                //no need to report a default image is already provided
-                print(foundError)
+                NotificationCenter.default.post(name: .networkingErrorNotification,
+                                                object: nil,
+                                                userInfo:errorInfo(error: foundError).toDict())
                 return
             }
-            guard let validData: Data = data
+            guard let validData: Data = data,
+            let XMLString: String = String(data: validData, encoding: .utf8)
             else {
-                //TODO: Log error.
-                //no need to report a default image is already provided
-                print(unrecognizableDataError)
+                NotificationCenter.default.post(name: .networkingErrorNotification,
+                                                object: nil,
+                                                userInfo:errorInfo(error: foundError).toDict())
                 return
             }
-            let parser: XMLParser = XMLParser(data: validData)
-            parser.parseHTMLforFavIcon(fromSite: unownedSelf.url)
+            do {
+                let xmlDoc: XMLDocument = try XMLDocument(xmlString: XMLString, options: .documentTidyXML)
+                let parser: XMLParser = XMLParser(data: xmlDoc.xmlData)
+                parser.parseHTMLforFavIcon(fromSite: unownedSelf.url)
+            } catch {
+                NotificationCenter.default.post(name: .errorConvertingHTML,
+                                                object: nil,
+                                                userInfo: [errorInfoKey:unrecognizableDataError])
+                return
+            }
         }
     }
     
