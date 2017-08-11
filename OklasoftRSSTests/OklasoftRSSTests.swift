@@ -17,9 +17,9 @@ class OklasoftRSSTests: XCTestCase {
     
     //Test params
 //RSS test 1
-    let rssURL: URL = URL(string:"http://feeds.macrumors.com/MacRumors-All")!
+//    let rssURL: URL = URL(string:"http://feeds.macrumors.com/MacRumors-All")!
 //RSS test 2
-//    let rssURL = URL(string:"http://inessential.com/xml/rss.xml")!
+    let rssURL = URL(string:"http://inessential.com/xml/rss.xml")!
     
 //Atom test 1
     let atomURL: URL = URL(string:"https://daringfireball.net/feeds/main")!
@@ -103,7 +103,6 @@ class OklasoftRSSTests: XCTestCase {
             let keyURL: URL = userInfo.keys.first as? URL,
             let imageURL: URL = userInfo[keyURL] as? URL
             else {
-                XCTFail()
                 return
         }
         XCTAssertNotNil(imageURL)
