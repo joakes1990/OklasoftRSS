@@ -84,11 +84,10 @@ class HTMLDelegate: NSObject, XMLParserDelegate {
         case link = "link"
     }
 
-    
-    struct Link {
-        let link: URL
-        let type: mimeTypes
-        let title: String
-    }
 }
 
+public struct Link {
+    let link: URL
+    let type: mimeTypes
+    let title: String
+}
