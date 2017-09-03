@@ -99,8 +99,6 @@
 
 /* Begin PBXFileReference section */
 		D0333CF71F22A25F008D1446 /* StringExtensionHTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionHTML.swift; sourceTree = "<group>"; };
-		D058AFF11F3B74E500EAC5EB /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		D058AFF51F3B74F200EAC5EB /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.0.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
 		D05D3B351F0DE92B0020627D /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		D05D3B591F0F23EB0020627D /* NetworkClosures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClosures.swift; sourceTree = "<group>"; };
 		D05D3B631F11B6310020627D /* RSSmodels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSmodels.swift; sourceTree = "<group>"; };
@@ -240,8 +238,6 @@
 		D088D3CB1F0863E40048B95A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D058AFF11F3B74E500EAC5EB /* WebKit.framework */,
-				D058AFF51F3B74F200EAC5EB /* WebKit.framework */,
 				D0FCF84D1F23A5570004EF02 /* OklasoftNetworking.xcodeproj */,
 			);
 			name = Frameworks;
