@@ -15,61 +15,45 @@ import WebKit
 #endif
 
 
-public extension URLSession {
+public extension OKURLSession {
     
-    static let identifyFeedsCompletion: networkCompletion = {(data, responce, error) in
-        if let foundError:Error = error {
-            NotificationCenter.default.post(name: .networkingErrorNotification,
-                                            object: nil,
-                                            userInfo:errorInfo(error: foundError).toDict())
-            return
-        }
-        guard let headers: URLResponse = responce,
-            let validData: Data = data,
-            let typeString: String = headers.mimeType,
-            let mimeType: mimeTypes = mimeTypes(rawValue:typeString),
-            let url: URL = headers.url,
-            let title: String = url.host
-            else {
-                let error: Error = unrecognizableDataError
-                NotificationCenter.default.post(name: .feedIdentificationError,
-                                                object: nil,
-                                                userInfo: [errorInfoKey:error])
+    func identifyFeeds(url: URL) {
+        let task: URLSessionDataTask = self.dataTask(with: url) { (data, responce, error) in
+            unowned let unownedSelf: OKURLSession = self
+            if let foundError:Error = error {
+                unownedSelf.OKdelegate?.receavedNetworkError(error: foundError)
                 return
-        }
-        
-        func parentURLForRSS() -> URL? {
-            guard let pageXML: String = String(data: validData, encoding: .utf8),
-                let linkRange: Range = pageXML.range(of: "(?<=<link>)(.+)(?=</link>)",
-                                                     options: .regularExpression,
-                                                     range: pageXML.range(of: pageXML),
-                                                     locale: nil)
-                else {
-                    return nil
             }
             
-            let linkString: String = pageXML.substring(with: linkRange)
-            return URL(string: linkString)
+            guard let headers: URLResponse = responce,
+                let validData: Data = data,
+                let typeString: String = headers.mimeType,
+                let mimeType: mimeTypes = mimeTypes(rawValue:typeString),
+                let url: URL = headers.url,
+                let title: String = url.host
+                else {
+                    let error: Error = unrecognizableDataError
+                    unownedSelf.OKdelegate?.receavedNetworkError(error: error)
+                    return
+            }
+            var canonicalURL: URL? = nil
+            switch mimeType {
+            case .rss, .rssXML, .simpleRSS:
+                canonicalURL = unownedSelf.parentURLForRSS(data: validData)
+                break
+            default:
+                break
+            }
+            
+            let newFeed: Feed = Feed(title: title,
+                                     url: url,
+                                     canonicalURL: canonicalURL,
+                                     lastUpdated: nil,
+                                     mimeType: mimeType,
+                                     favIcon: nil)
+            unownedSelf.OKdelegate.found(feed: newFeed)
         }
-        
-        var canonicalURL: URL? = nil
-        switch mimeType {
-        case .rss, .rssXML, .simpleRSS:
-            canonicalURL = parentURLForRSS()
-            break
-        default:
-            break
-        }
-        let newFeed: Feed = Feed(title: title,
-                                 url: url,
-                                 canonicalURL: canonicalURL,
-                                 lastUpdated: nil,
-                                 mimeType: mimeType,
-                                 favIcon: nil)
-        NotificationCenter.default.post(name: .finishedReceavingFeed,
-                                        object: nil,
-                                        userInfo: [feedInfoKey:newFeed])
-        
+        task.resume()
     }
     
     static let identifyStoriesCompletion: networkCompletion = {(data, responce, error) in
@@ -136,5 +120,25 @@ public extension URLSession {
         default:
             break
         }
+    }
+        
+    func parentURLForRSS(data: Data) -> URL? {
+            guard let pageXML: String = String(data: data, encoding: .utf8),
+                let linkRange: Range = pageXML.range(of: "(?<=<link>)(.+)(?=</link>)",
+                                                     options: .regularExpression,
+                                                     range: pageXML.range(of: pageXML),
+                                                     locale: nil)
+                else {
+                    return nil
+            }
+            
+            let linkString: String = pageXML.substring(with: linkRange)
+            return URL(string: linkString)
+        }
+}
+
+extension OKURLSessionDelegate {
+    func found(feed: Feed) {
+        //Manage New Feed
     }
 }

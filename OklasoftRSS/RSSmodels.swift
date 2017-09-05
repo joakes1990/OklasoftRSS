@@ -45,7 +45,7 @@ public class Feed {
     
     func checkBasicFaviconURL(url: URL) {
         unowned let unownedSelf: Feed = self
-        URLSession.shared.getReturnedDataFrom(url: url) { (data, responce, error) in
+        OKURLSession.OKShared.getReturnedDataFrom(url: url, completion: { (data, responce, error) in
             if let foundError: Error = error {
                 NotificationCenter.default.post(name: .networkingErrorNotification,
                                                 object: nil,
@@ -57,7 +57,7 @@ public class Feed {
                 unownedSelf.favIcon = url
                 NotificationCenter.default.post(name: .foundFavIcon, object: nil, userInfo: nil)
             }
-        }
+        })
     }
         func requestUpdatedFavIcon() {
             guard let baseURL: URL = canonicalURL != nil ? canonicalURL : URL(string:"http://\(url.host ?? "")") else {
@@ -65,7 +65,7 @@ public class Feed {
             }
             checkBasicFaviconURL(url: baseURL.appendingPathComponent("favicon.ico"))
             unowned let unownedSelf: Feed = self
-            URLSession.shared.getReturnedDataFrom(url: baseURL) { (data, responce, error) in
+           OKURLSession.OKShared.getReturnedDataFrom(url: baseURL) { (data, responce, error) in
                 if let foundError: Error = error {
                     NotificationCenter.default.post(name: .networkingErrorNotification,
                                                     object: nil,
@@ -103,7 +103,7 @@ public class Feed {
         
         func requestUpdatedStories() {
             unowned let unownedSelf: Feed = self
-            URLSession.shared.getReturnedDataFrom(url: url) { (data, respone, error) in
+            OKURLSession.OKShared.getReturnedDataFrom(url: url, completion: { (data, respone, error) in
                 if let foundError: Error = error {
                     NotificationCenter.default.post(name: .feedIdentificationError,
                                                     object: nil,
@@ -124,7 +124,7 @@ public class Feed {
                 default:
                     return
                 }
-            }
+            })
         }
         
         @objc func receaveUpdatedStories(anotification: Notification) {
