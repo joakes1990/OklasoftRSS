@@ -15,11 +15,13 @@ import WebKit
 #endif
 
 
-public extension OKURLSession {
+public class OKRSSURLSession: OKURLSession {
+    
+    var RSSURLSessionDelegate: OKURLRSSSessionDelegate?
     
     func identifyFeeds(url: URL) {
         let task: URLSessionDataTask = self.dataTask(with: url) { (data, responce, error) in
-            unowned let unownedSelf: OKURLSession = self
+            unowned let unownedSelf: OKRSSURLSession = self
             if let foundError:Error = error {
                 unownedSelf.OKdelegate?.receavedNetworkError(error: foundError)
                 return
@@ -51,7 +53,7 @@ public extension OKURLSession {
                                      lastUpdated: nil,
                                      mimeType: mimeType,
                                      favIcon: nil)
-            unownedSelf.OKdelegate.found(feed: newFeed)
+            unownedSelf.RSSURLSessionDelegate?.found(feed: newFeed)
         }
         task.resume()
     }
@@ -137,8 +139,6 @@ public extension OKURLSession {
         }
 }
 
-extension OKURLSessionDelegate {
-    func found(feed: Feed) {
-        //Manage New Feed
-    }
+public protocol OKURLRSSSessionDelegate {
+    func found(feed: Feed)
 }
