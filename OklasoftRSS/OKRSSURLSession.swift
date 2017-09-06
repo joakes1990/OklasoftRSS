@@ -17,16 +17,18 @@ import WebKit
 
 public class OKRSSURLSession: OKURLSession {
     
-    var RSSURLSessionDelegate: OKURLRSSSessionDelegate?
+    public var RSSURLSessionDelegate: OKURLRSSSessionDelegate?
+    public static let rssShared: OKRSSURLSession = OKRSSURLSession()
     
-    func identifyFeeds(url: URL) {
-        let task: URLSessionDataTask = self.dataTask(with: url) { (data, responce, error) in
-            unowned let unownedSelf: OKRSSURLSession = self
+    public func identifyFeeds(url: URL) {
+        unowned let unownedSelf: OKRSSURLSession = self
+
+        let task: URLSessionDataTask = URLSession.shared.dataTask(with: url, completionHandler: { (data, responce, error) in
             if let foundError:Error = error {
                 unownedSelf.OKdelegate?.receavedNetworkError(error: foundError)
                 return
             }
-            
+
             guard let headers: URLResponse = responce,
                 let validData: Data = data,
                 let typeString: String = headers.mimeType,
@@ -46,7 +48,7 @@ public class OKRSSURLSession: OKURLSession {
             default:
                 break
             }
-            
+
             let newFeed: Feed = Feed(title: title,
                                      url: url,
                                      canonicalURL: canonicalURL,
@@ -54,7 +56,7 @@ public class OKRSSURLSession: OKURLSession {
                                      mimeType: mimeType,
                                      favIcon: nil)
             unownedSelf.RSSURLSessionDelegate?.found(feed: newFeed)
-        }
+        })
         task.resume()
     }
     

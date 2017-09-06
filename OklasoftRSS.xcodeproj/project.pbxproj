@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		D0333CF81F22A25F008D1446 /* StringExtensionHTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0333CF71F22A25F008D1446 /* StringExtensionHTML.swift */; };
 		D05D3B361F0DE92B0020627D /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D3B351F0DE92B0020627D /* Errors.swift */; };
-		D05D3B5A1F0F23EB0020627D /* NetworkClosures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D3B591F0F23EB0020627D /* NetworkClosures.swift */; };
+		D05D3B5A1F0F23EB0020627D /* OKRSSURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D3B591F0F23EB0020627D /* OKRSSURLSession.swift */; };
 		D05D3B641F11B6310020627D /* RSSmodels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D3B631F11B6310020627D /* RSSmodels.swift */; };
 		D06810F71F23D2BC0093EF1C /* HTMLEntityMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06810F61F23D2BC0093EF1C /* HTMLEntityMap.swift */; };
 		D06B221E1F1C536F00027279 /* AtomDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06B221D1F1C536F00027279 /* AtomDelegate.swift */; };
@@ -25,7 +25,7 @@
 		D07D702A1F2419B500FE25C1 /* AtomDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06B221D1F1C536F00027279 /* AtomDelegate.swift */; };
 		D07D702B1F2419B500FE25C1 /* FavIconDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07D70051F24040200FE25C1 /* FavIconDelegate.swift */; };
 		D07D702C1F2419B500FE25C1 /* RSSmodels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D3B631F11B6310020627D /* RSSmodels.swift */; };
-		D07D702D1F2419B500FE25C1 /* NetworkClosures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D3B591F0F23EB0020627D /* NetworkClosures.swift */; };
+		D07D702D1F2419B500FE25C1 /* OKRSSURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D3B591F0F23EB0020627D /* OKRSSURLSession.swift */; };
 		D07D702F1F2419B500FE25C1 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09CB6E51F098A9800E28DF8 /* Notifications.swift */; };
 		D07D70301F2419B500FE25C1 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D3B351F0DE92B0020627D /* Errors.swift */; };
 		D07D707C1F242E9E00FE25C1 /* OklasoftNetworking_iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07D70761F242DFA00FE25C1 /* OklasoftNetworking_iOS_.framework */; };
@@ -100,7 +100,7 @@
 /* Begin PBXFileReference section */
 		D0333CF71F22A25F008D1446 /* StringExtensionHTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionHTML.swift; sourceTree = "<group>"; };
 		D05D3B351F0DE92B0020627D /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
-		D05D3B591F0F23EB0020627D /* NetworkClosures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClosures.swift; sourceTree = "<group>"; };
+		D05D3B591F0F23EB0020627D /* OKRSSURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKRSSURLSession.swift; sourceTree = "<group>"; };
 		D05D3B631F11B6310020627D /* RSSmodels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSmodels.swift; sourceTree = "<group>"; };
 		D06810F61F23D2BC0093EF1C /* HTMLEntityMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLEntityMap.swift; sourceTree = "<group>"; };
 		D06B221D1F1C536F00027279 /* AtomDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomDelegate.swift; sourceTree = "<group>"; };
@@ -218,7 +218,7 @@
 				D0CBAF8B1F19CE980025B819 /* Parsers */,
 				D088D3B41F0861E20048B95A /* OklasoftRSS.h */,
 				D05D3B631F11B6310020627D /* RSSmodels.swift */,
-				D05D3B591F0F23EB0020627D /* NetworkClosures.swift */,
+				D05D3B591F0F23EB0020627D /* OKRSSURLSession.swift */,
 				D09CB6E51F098A9800E28DF8 /* Notifications.swift */,
 				D088D3B51F0861E20048B95A /* Info.plist */,
 				D05D3B351F0DE92B0020627D /* Errors.swift */,
@@ -486,7 +486,7 @@
 				D07D702A1F2419B500FE25C1 /* AtomDelegate.swift in Sources */,
 				D07D702B1F2419B500FE25C1 /* FavIconDelegate.swift in Sources */,
 				D07D702C1F2419B500FE25C1 /* RSSmodels.swift in Sources */,
-				D07D702D1F2419B500FE25C1 /* NetworkClosures.swift in Sources */,
+				D07D702D1F2419B500FE25C1 /* OKRSSURLSession.swift in Sources */,
 				D07D702F1F2419B500FE25C1 /* Notifications.swift in Sources */,
 				D07D70301F2419B500FE25C1 /* Errors.swift in Sources */,
 			);
@@ -513,7 +513,7 @@
 				D0CBAF901F19CF080025B819 /* RSSDelegate.swift in Sources */,
 				D05D3B641F11B6310020627D /* RSSmodels.swift in Sources */,
 				D05D3B361F0DE92B0020627D /* Errors.swift in Sources */,
-				D05D3B5A1F0F23EB0020627D /* NetworkClosures.swift in Sources */,
+				D05D3B5A1F0F23EB0020627D /* OKRSSURLSession.swift in Sources */,
 				D06B221E1F1C536F00027279 /* AtomDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
