@@ -7,11 +7,6 @@
 //
 
 import Foundation
-#if os(OSX)
-    import OklasoftNetworking
-#elseif os(iOS)
-    import OklasoftNetworking_iOS_
-#endif
 
 class AtomDelegate: RSSDelegate {
     

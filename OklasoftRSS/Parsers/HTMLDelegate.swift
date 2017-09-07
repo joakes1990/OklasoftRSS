@@ -7,11 +7,6 @@
 //
 
 import Foundation
-#if os(OSX)
-    import OklasoftNetworking
-#elseif os(iOS)
-    import OklasoftNetworking_iOS_
-#endif
 
 class HTMLDelegate: NSObject, XMLParserDelegate {
     
@@ -72,9 +67,10 @@ class HTMLDelegate: NSObject, XMLParserDelegate {
     }
     
     func parserDidEndDocument(_ parser: XMLParser) {
-            NotificationCenter.default.post(name: .foundFeedURLs,
-                                            object: nil,
-                                            userInfo: [url:(links ?? [])])
+        //TODO: replace with protocol callback
+//            NotificationCenter.default.post(name: .foundFeedURLs,
+//                                            object: nil,
+//                                            userInfo: [url:(links ?? [])])
     }
     
     private enum parsingElements: String {

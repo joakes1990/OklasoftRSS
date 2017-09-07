@@ -7,12 +7,6 @@
 //
 
 import Foundation
-#if os(OSX)
-    import OklasoftNetworking
-#elseif os(iOS)
-    import OklasoftNetworking_iOS_
-#endif
-
 
 class FavIconDelegate: NSObject, XMLParserDelegate {
     
@@ -54,13 +48,15 @@ class FavIconDelegate: NSObject, XMLParserDelegate {
     
     func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
         if let link: URL = foundIcon?.imageLink {
-            NotificationCenter.default.post(name: .foundFavIcon,
-                                            object: nil,
-                                            userInfo: [url:link])
+            //TODO: REplace with protocol callback
+//            NotificationCenter.default.post(name: .foundFavIcon,
+//                                            object: nil,
+//                                            userInfo: [url:link])
         } else {
-            NotificationCenter.default.post(name: .errorFindingStories,
-                                            object: nil,
-                                            userInfo: [errorInfoKey:parseError])
+            //TODO: REplace with protocol callback
+//            NotificationCenter.default.post(name: .errorFindingStories,
+//                                            object: nil,
+//                                            userInfo: [errorInfoKey:parseError])
         }
     }
     
@@ -80,9 +76,10 @@ class FavIconDelegate: NSObject, XMLParserDelegate {
     
     func parserDidEndDocument(_ parser: XMLParser) {
         if let link: URL = foundIcon?.imageLink {
-            NotificationCenter.default.post(name: .foundFavIcon,
-                                            object: nil,
-                                            userInfo: [url:link])
+            //TODO: REplace with protocol callback
+//            NotificationCenter.default.post(name: .foundFavIcon,
+//                                            object: nil,
+//                                            userInfo: [url:link])
         }
     }
     
