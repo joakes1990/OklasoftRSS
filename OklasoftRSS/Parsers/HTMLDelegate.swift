@@ -12,6 +12,7 @@ class HTMLDelegate: NSObject, XMLParserDelegate {
     
     var parsingHead: Bool = false
     let url: URL
+    var caller: RSSNetworkingDelegate?
     fileprivate var links: [Link]?
     
     init(with url: URL) {
@@ -67,10 +68,7 @@ class HTMLDelegate: NSObject, XMLParserDelegate {
     }
     
     func parserDidEndDocument(_ parser: XMLParser) {
-        //TODO: replace with protocol callback
-//            NotificationCenter.default.post(name: .foundFeedURLs,
-//                                            object: nil,
-//                                            userInfo: [url:(links ?? [])])
+        caller?.found(links: links)
     }
     
     private enum parsingElements: String {
