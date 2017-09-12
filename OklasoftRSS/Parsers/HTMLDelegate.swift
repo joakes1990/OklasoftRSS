@@ -46,7 +46,7 @@ class HTMLDelegate: NSObject, XMLParserDelegate {
                 }
                 let newLink: Link = Link(link: linkURL,
                                          type: type,
-                                         title: attributeDict["title"] ?? "\(linkURL.absoluteString)")
+                                         title: attributeDict["title"] ?? "\(linkURL.lastPathComponent)")
                 links == nil ? links = [newLink] : links?.append(newLink)
             }
             break
