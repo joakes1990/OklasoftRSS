@@ -22,7 +22,11 @@ class HTMLDelegate: NSObject, XMLParserDelegate {
     }
     
     func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
-        print("Oh crap an error")
+        //TODO: Log error
+        if let linksArray: [Link] = links,
+            linksArray.count > 0 {
+            parserDidEndDocument(parser)
+        }
     }
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
@@ -37,7 +41,7 @@ class HTMLDelegate: NSObject, XMLParserDelegate {
             if parsingHead {
                 guard let type: mimeTypes = mimeTypes(rawValue:attributeDict["type"] ?? ""),
                     let link: String = attributeDict["href"],
-                    let linkURL: URL = URL(string: link)
+                    let linkURL: URL = URL(string: link, relativeTo: url)
                     else {
                         return
                 }
