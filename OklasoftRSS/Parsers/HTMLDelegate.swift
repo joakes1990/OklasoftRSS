@@ -12,7 +12,7 @@ class HTMLDelegate: NSObject, XMLParserDelegate {
     
     var parsingHead: Bool = false
     let url: URL
-    var caller: RSSNetworkingDelegate?
+    var caller: RSSNetworkingProtocol?
     fileprivate var links: [Link]?
     
     init(with url: URL) {
