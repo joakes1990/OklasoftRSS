@@ -51,7 +51,7 @@ class RSSDelegate: NSObject, XMLParserDelegate {
             case .podcastImage:
                 guard let imageLink: String = attributeDict["href"],
                     let imageURL: URL = URL(string: imageLink) else {
-                    break
+                        break
                 }
                 image = imageURL
                 break
@@ -110,17 +110,29 @@ class RSSDelegate: NSObject, XMLParserDelegate {
     }
     
     func parserDidEndDocument(_ parser: XMLParser) {
-        //TODO: REplace with protocol callback
-//        NotificationCenter.default.post(name: .finishedFindingStories,
-//                                        object: nil,
-//                                        userInfo: [feedURL:stories])
+        if stories.count > 0 {
+            let notification: NSUserNotification = NSUserNotification()
+            notification.title = NSLocalizedString("New stories are available", comment: "New stories are available")
+            DispatchQueue.main.async {
+                NSUserNotificationCenter.default.deliver(notification)
+            }
+            NotificationCenter.default.post(name: .finishedFindingStories,
+                                            object: nil,
+                                            userInfo: [feedURL:stories])
+        }
     }
     
     func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
-        //TODO: REplace with protocol callback
-//        NotificationCenter.default.post(name: .errorFindingStories,
-//                                        object: nil,
-//                                        userInfo: [errorInfoKey:parseError])
+        if stories.count > 0 {
+            let notification: NSUserNotification = NSUserNotification()
+            notification.title = NSLocalizedString("New stories are available", comment: "New stories are available")
+            DispatchQueue.main.async {
+                NSUserNotificationCenter.default.deliver(notification)
+            }
+            NotificationCenter.default.post(name: .finishedFindingStories,
+                                            object: nil,
+                                            userInfo: [feedURL:stories])
+        }
     }
     
     func rfc822DateFromString(string: String) -> Date? {
