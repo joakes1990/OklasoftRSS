@@ -170,7 +170,7 @@ class RSSDelegate: NSObject, XMLParserDelegate {
                                             author: nil)
         if let storyaudio: [URL] = audioContent,
             let storyImage: URL = image {
-            let podCast: PodCast = PodCast(story: newStory, audio: storyaudio, image: storyImage)
+            let podCast: PodCast = PodCast(story: newStory, audio: storyaudio, imageURL: storyImage)
             stories.append(podCast)
         } else {
             stories.append(newStory)

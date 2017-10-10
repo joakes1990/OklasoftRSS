@@ -31,7 +31,7 @@ import Foundation
         public let author: String?
     }
     
-    public struct PodCast: Story {
+    public class PodCast: Story {
         
         public let title: String
         public let url: URL
@@ -43,9 +43,10 @@ import Foundation
         public let author: String?
         
         let audioContent: [URL]
-        let image: URL
+        let imageURL: URL
+        var image: Data?
         
-        init(story: Story, audio: [URL], image: URL) {
+        init(story: Story, audio: [URL], imageURL: URL) {
             self.title = story.title
             self.url = story.url
             self.textContent = story.textContent
@@ -55,7 +56,16 @@ import Foundation
             self.feedURL = story.feedURL
             self.author = story.author
             self.audioContent = audio
-            self.image = image
+            self.imageURL = imageURL
+            self.image = nil
+            
+        }
+        
+        func setImage(imageData: Data) {
+            image = imageData
+        }
+        
+        func setImageFromNotification(anotification: Notification) {
             
         }
     }
