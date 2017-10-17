@@ -76,10 +76,9 @@ class FavIconDelegate: NSObject, XMLParserDelegate {
     
     func parserDidEndDocument(_ parser: XMLParser) {
         if let link: URL = foundIcon?.imageLink {
-            //TODO: REplace with protocol callback
-//            NotificationCenter.default.post(name: .foundFavIcon,
-//                                            object: nil,
-//                                            userInfo: [url:link])
+            NotificationCenter.default.post(name: .foundFavIcon,
+                                            object: nil,
+                                            userInfo: [url:link])
         }
     }
     
